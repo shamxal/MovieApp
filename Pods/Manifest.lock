@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.6.2)
+  - PanModal (1.2.7)
   - SDWebImage (5.13.2):
     - SDWebImage/Core (= 5.13.2)
   - SDWebImage/Core (5.13.2)
@@ -7,20 +8,23 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - PanModal
   - SDWebImage (~> 5.0)
   - SVProgressHUD
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - PanModal
     - SDWebImage
     - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 695587191bcdc19eae102d35c740f88e98dbe818
+PODFILE CHECKSUM: dddbe1092ffbc5c965b3ca35d6142350f2e2a759
 
 COCOAPODS: 1.11.2

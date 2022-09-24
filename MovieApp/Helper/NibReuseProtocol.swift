@@ -1,8 +1,8 @@
 //
 //  NibProtocol.swift
-//  UnimApp
+//  MovieApp
 //
-//  Created by Shamkhal Guliyev on 17.09.21.
+//  Created by Shamkhal Guliyev on 23.09.22.
 //
 
 import UIKit
