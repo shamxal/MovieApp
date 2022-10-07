@@ -18,4 +18,8 @@ class HomeCoordinator: Coordinator {
     func showMovieDetail(movieId: Int) {
         
     }
+    
+    func showFilter() {
+        
+    }
 }
