@@ -10,14 +10,27 @@ import UIKit
 class HomeController: UIViewController {
     @IBOutlet private weak var collection: UICollectionView!
     
+    let viewModel = HomeViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         collectionSetup()
+        viewModelConfiguration()
     }
     
     fileprivate func collectionSetup() {
         collection.registerCell(type: HorizontalMovieCell.self)
+    }
+    
+    fileprivate func viewModelConfiguration() {
+        viewModel.getCategorItems()
+        viewModel.errorCallback = { [weak self] errorMessage in
+            print("error: \(errorMessage)")
+        }
+        viewModel.successCallback = { [weak self] in
+            self?.collection.reloadData()
+        }
     }
     
     @IBAction func filterButtonTapped(_ sender: Any) {
@@ -27,12 +40,15 @@ class HomeController: UIViewController {
 
 extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+        viewModel.numberOfItems()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HorizontalMovieCell = collectionView.dequeueCell(for: indexPath)
-        cell.backgroundColor = .red
+//        print(viewModel.movie?.results?[indexPath.item].originalTitle ?? "")
+        if let movie = viewModel.movie?.results?[indexPath.item] {
+            cell.configure(data: movie)
+        }
         return cell
     }
     

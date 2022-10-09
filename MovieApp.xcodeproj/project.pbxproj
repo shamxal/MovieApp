@@ -38,6 +38,7 @@
 		47D3432328DE40D60000B72B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D3432228DE40D60000B72B /* Coordinator.swift */; };
 		47D3432528DE41060000B72B /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D3432428DE41060000B72B /* HomeCoordinator.swift */; };
 		47D3432728DE41330000B72B /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D3432628DE41330000B72B /* Storyboarded.swift */; };
+		47E8BDC828F326E800254120 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47E8BDC728F326E800254120 /* Colors.xcassets */; };
 		5E4F2AE5528B37D2F3C36895 /* Pods_MovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9775BB5F0CB15201A5C25B5D /* Pods_MovieApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		47D3432228DE40D60000B72B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		47D3432428DE41060000B72B /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		47D3432628DE41330000B72B /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		47E8BDC728F326E800254120 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		76F5ACBA3812D7B84D448BDB /* Pods-MovieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.debug.xcconfig"; path = "Target Support Files/Pods-MovieApp/Pods-MovieApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7D8E4FFFF7D061C757C7BB0B /* Pods-MovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.release.xcconfig"; path = "Target Support Files/Pods-MovieApp/Pods-MovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		9775BB5F0CB15201A5C25B5D /* Pods_MovieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 				47D342F728DE3F0E0000B72B /* Scene */,
 				476B77A328DE3B3900E66099 /* Main.storyboard */,
 				476B77A628DE3B3A00E66099 /* Assets.xcassets */,
+				47E8BDC728F326E800254120 /* Colors.xcassets */,
 				476B77A828DE3B3A00E66099 /* LaunchScreen.storyboard */,
 				476B77AB28DE3B3A00E66099 /* Info.plist */,
 			);
@@ -348,6 +351,7 @@
 			files = (
 				47D3430E28DE40110000B72B /* Inter-Medium.ttf in Resources */,
 				47D3430F28DE40110000B72B /* Inter-Bold.ttf in Resources */,
+				47E8BDC828F326E800254120 /* Colors.xcassets in Resources */,
 				476B77AA28DE3B3A00E66099 /* LaunchScreen.storyboard in Resources */,
 				47D3431328DE40110000B72B /* Inter-SemiBold.ttf in Resources */,
 				47D3431128DE40110000B72B /* Inter-ExtraBold.ttf in Resources */,

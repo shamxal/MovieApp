@@ -7,7 +7,8 @@
 
 import Alamofire
 
-class NetworkManager {
+class NetworkManager {    
+    static let shared = NetworkManager()
     
     func request<T: Codable>(type: T.Type,
                              url: String,

@@ -7,6 +7,13 @@
 
 import Foundation
 
-class HomeHelper {
+enum HomeEndpoint: String {
+    case popular = "movie/popular"
     
+    var path: String {
+        switch self {
+        case .popular:
+            return NetworkHelper.shared.requestUrl(url: HomeEndpoint.popular.rawValue)
+        }
+    }
 }

@@ -14,10 +14,12 @@ enum ErrorTypes: String, Error {
 }
 
 class NetworkHelper {
+    static let shared = NetworkHelper()
+    
     private let baseURL = "https://api.themoviedb.org/3/"
     private let apiKey = "e2253416fac0cd2476291eb33c92beb7"
     
     func requestUrl(url: String) -> String {
-        baseURL + url + apiKey
+        baseURL + url + "?api_key=\(apiKey)"
     }
 }
