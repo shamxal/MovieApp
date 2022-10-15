@@ -22,7 +22,6 @@ class SearchController: UIViewController {
     }
     
     fileprivate func configureUI() {
-        title = "Search"
         collection.registerCell(type: HorizontalMovieCell.self)
         searchIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(searchIconTap)))
     }

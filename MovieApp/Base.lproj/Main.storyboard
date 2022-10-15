@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HSu-ui-gD2">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -25,7 +25,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FmN-zI-ahK">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="0.0" id="d2V-rS-uRW">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="50" height="365"/>
@@ -108,7 +108,7 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="-613"/>
         </scene>
-        <!--Search Controller-->
+        <!--Serach-->
         <scene sceneID="k84-cz-H5l">
             <objects>
                 <viewController storyboardIdentifier="SearchController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AMY-yF-2bh" customClass="SearchController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -154,7 +154,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xa9-Vn-SXK">
                                 <rect key="frame" x="8" y="168" width="398" height="645"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="0.0" id="3hS-5a-pW7">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -181,7 +181,7 @@
                             <constraint firstItem="1YF-tG-gSf" firstAttribute="height" secondItem="Ki0-x8-A1e" secondAttribute="height" multiplier="0.0669643" id="zTI-Cl-j1W"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="NCi-75-XE1"/>
+                    <navigationItem key="navigationItem" title="Serach" id="NCi-75-XE1"/>
                     <connections>
                         <outlet property="collection" destination="Xa9-Vn-SXK" id="m4M-YP-TcB"/>
                         <outlet property="searchIcon" destination="FLA-Ia-46Q" id="YbM-or-njW"/>
@@ -255,9 +255,6 @@
         <namedColor name="tabbarImageTint">
             <color red="0.066666666666666666" green="0.054901960784313725" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
