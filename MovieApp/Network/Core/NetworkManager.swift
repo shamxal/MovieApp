@@ -20,7 +20,7 @@ class NetworkManager {
                 self.handleResponse(data: data) { response in
                     completion(response)
                 }
-            case .failure(_):
+            case .failure(let error):
                 completion(.failure(.generalError))
             }
         }

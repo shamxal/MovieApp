@@ -12,10 +12,13 @@
 		470FAE8528E97EC200E064D9 /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470FAE8428E97EC200E064D9 /* FavoriteController.swift */; };
 		470FAE8928E982B100E064D9 /* HorizontalMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470FAE8728E982B100E064D9 /* HorizontalMovieCell.swift */; };
 		470FAE8A28E982B100E064D9 /* HorizontalMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 470FAE8828E982B100E064D9 /* HorizontalMovieCell.xib */; };
+		472064D328FB372300709BE1 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472064D228FB372300709BE1 /* SearchViewModel.swift */; };
 		476B779E28DE3B3900E66099 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476B779D28DE3B3900E66099 /* AppDelegate.swift */; };
 		476B77A528DE3B3900E66099 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 476B77A328DE3B3900E66099 /* Main.storyboard */; };
 		476B77A728DE3B3A00E66099 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 476B77A628DE3B3A00E66099 /* Assets.xcassets */; };
 		476B77AA28DE3B3A00E66099 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 476B77A828DE3B3A00E66099 /* LaunchScreen.storyboard */; };
+		47A58FA828FB38A100A717A4 /* SearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A58FA728FB38A100A717A4 /* SearchHelper.swift */; };
+		47A58FAA28FB38A700A717A4 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A58FA928FB38A700A717A4 /* SearchManager.swift */; };
 		47C4B96F28DF0125002E1E52 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4B96E28DF0125002E1E52 /* NetworkHelper.swift */; };
 		47C4B97128DF0496002E1E52 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4B97028DF0495002E1E52 /* NetworkManager.swift */; };
 		47C4B97328DF0C9B002E1E52 /* HomeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4B97228DF0C9B002E1E52 /* HomeHelper.swift */; };
@@ -53,12 +56,15 @@
 		470FAE8428E97EC200E064D9 /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		470FAE8728E982B100E064D9 /* HorizontalMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalMovieCell.swift; sourceTree = "<group>"; };
 		470FAE8828E982B100E064D9 /* HorizontalMovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalMovieCell.xib; sourceTree = "<group>"; };
+		472064D228FB372300709BE1 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		476B779A28DE3B3900E66099 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		476B779D28DE3B3900E66099 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		476B77A428DE3B3900E66099 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		476B77A628DE3B3A00E66099 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		476B77A928DE3B3A00E66099 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		476B77AB28DE3B3A00E66099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47A58FA728FB38A100A717A4 /* SearchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHelper.swift; sourceTree = "<group>"; };
+		47A58FA928FB38A700A717A4 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		47C4B96E28DF0125002E1E52 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		47C4B97028DF0495002E1E52 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		47C4B97228DF0C9B002E1E52 /* HomeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHelper.swift; sourceTree = "<group>"; };
@@ -124,6 +130,29 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		472064CF28FB370200709BE1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				472064D228FB372300709BE1 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		472064D028FB370A00709BE1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				470FAE8228E97EB800E064D9 /* SearchController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		472064D128FB371000709BE1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		476B779128DE3B3900E66099 = {
 			isa = PBXGroup;
 			children = (
@@ -159,11 +188,21 @@
 			path = MovieApp;
 			sourceTree = "<group>";
 		};
+		47A58FA628FB389200A717A4 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				47A58FA728FB38A100A717A4 /* SearchHelper.swift */,
+				47A58FA928FB38A700A717A4 /* SearchManager.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		47D342F528DE3EF60000B72B /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				47D342FB28DE3F960000B72B /* Core */,
 				47D342FC28DE3F9A0000B72B /* Home */,
+				47A58FA628FB389200A717A4 /* Search */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -206,7 +245,9 @@
 		47D342F928DE3F270000B72B /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				470FAE8228E97EB800E064D9 /* SearchController.swift */,
+				472064D128FB371000709BE1 /* Model */,
+				472064D028FB370A00709BE1 /* View */,
+				472064CF28FB370200709BE1 /* ViewModel */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -443,9 +484,12 @@
 				470FAE8928E982B100E064D9 /* HorizontalMovieCell.swift in Sources */,
 				47D3432728DE41330000B72B /* Storyboarded.swift in Sources */,
 				470FAE8128E97DF900E064D9 /* TabBar.swift in Sources */,
+				47A58FAA28FB38A700A717A4 /* SearchManager.swift in Sources */,
 				47D3432528DE41060000B72B /* HomeCoordinator.swift in Sources */,
 				47D3430628DE3FE40000B72B /* Movie.swift in Sources */,
 				47CB03F228FAD2F900193A54 /* LabelCollectionCell.swift in Sources */,
+				47A58FA828FB38A100A717A4 /* SearchHelper.swift in Sources */,
+				472064D328FB372300709BE1 /* SearchViewModel.swift in Sources */,
 				47D3432328DE40D60000B72B /* Coordinator.swift in Sources */,
 				47D3431928DE403E0000B72B /* UIViewController+Extension.swift in Sources */,
 				470FAE8528E97EC200E064D9 /* FavoriteController.swift in Sources */,

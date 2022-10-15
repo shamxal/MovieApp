@@ -4,10 +4,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--MovieApp-->
         <scene sceneID="tne-QT-ifu">
@@ -71,6 +77,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="tabbarImageTint"/>
                     </tabBar>
                     <connections>
                         <segue destination="ZnU-1y-rk0" kind="relationship" relationship="viewControllers" id="9Wq-Hd-9Ug"/>
@@ -108,14 +115,82 @@
                     <view key="view" contentMode="scaleToFill" id="Ki0-x8-A1e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1YF-tG-gSf">
+                                <rect key="frame" x="8" y="96" width="398" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Movie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLA-Ia-46Q">
+                                        <rect key="frame" x="48" y="7.5" width="342" height="45"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="searchTextFieldAction:" destination="AMY-yF-2bh" eventType="editingChanged" id="TsO-pk-5mC"/>
+                                            <outlet property="delegate" destination="AMY-yF-2bh" id="yLc-IP-SV7"/>
+                                        </connections>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbarItemTwo" translatesAutoresizingMaskIntoConstraints="NO" id="z1c-2k-iER">
+                                        <rect key="frame" x="16" y="18" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="3Aw-3I-iTx"/>
+                                            <constraint firstAttribute="width" constant="24" id="K5r-SN-PFy"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.89803921568627454" green="0.89411764705882346" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="FLA-Ia-46Q" firstAttribute="height" secondItem="1YF-tG-gSf" secondAttribute="height" multiplier="0.75" id="H1k-4O-hxu"/>
+                                    <constraint firstItem="z1c-2k-iER" firstAttribute="centerY" secondItem="1YF-tG-gSf" secondAttribute="centerY" id="HTK-IT-F7E"/>
+                                    <constraint firstItem="z1c-2k-iER" firstAttribute="leading" secondItem="1YF-tG-gSf" secondAttribute="leading" constant="16" id="KPh-OK-XDf"/>
+                                    <constraint firstItem="FLA-Ia-46Q" firstAttribute="leading" secondItem="z1c-2k-iER" secondAttribute="trailing" constant="8" symbolic="YES" id="ZYN-vD-7Ey"/>
+                                    <constraint firstAttribute="trailing" secondItem="FLA-Ia-46Q" secondAttribute="trailing" constant="8" id="i7F-V6-Uae"/>
+                                    <constraint firstItem="FLA-Ia-46Q" firstAttribute="centerY" secondItem="z1c-2k-iER" secondAttribute="centerY" id="pTv-4H-mIk"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xa9-Vn-SXK">
+                                <rect key="frame" x="8" y="168" width="398" height="645"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="0.0" id="3hS-5a-pW7">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="AMY-yF-2bh" id="lUB-QT-XGC"/>
+                                    <outlet property="delegate" destination="AMY-yF-2bh" id="ZT7-7V-ikn"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Kzn-Mk-E5p"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1YF-tG-gSf" firstAttribute="centerX" secondItem="Kzn-Mk-E5p" secondAttribute="centerX" id="3Ll-re-btg"/>
+                            <constraint firstItem="Xa9-Vn-SXK" firstAttribute="top" secondItem="1YF-tG-gSf" secondAttribute="bottom" constant="12" id="DcX-QE-xc2"/>
+                            <constraint firstItem="Xa9-Vn-SXK" firstAttribute="bottom" secondItem="Kzn-Mk-E5p" secondAttribute="bottom" id="ScJ-MA-FQg"/>
+                            <constraint firstItem="1YF-tG-gSf" firstAttribute="top" secondItem="Kzn-Mk-E5p" secondAttribute="top" constant="8" id="cl8-KR-bN8"/>
+                            <constraint firstItem="Xa9-Vn-SXK" firstAttribute="leading" secondItem="1YF-tG-gSf" secondAttribute="leading" id="iIm-8e-nOe"/>
+                            <constraint firstItem="Xa9-Vn-SXK" firstAttribute="trailing" secondItem="1YF-tG-gSf" secondAttribute="trailing" id="pcb-qa-kP1"/>
+                            <constraint firstItem="1YF-tG-gSf" firstAttribute="width" secondItem="Ki0-x8-A1e" secondAttribute="width" multiplier="0.961353" id="rOZ-lN-G87"/>
+                            <constraint firstItem="1YF-tG-gSf" firstAttribute="height" secondItem="Ki0-x8-A1e" secondAttribute="height" multiplier="0.0669643" id="zTI-Cl-j1W"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NCi-75-XE1"/>
+                    <connections>
+                        <outlet property="collection" destination="Xa9-Vn-SXK" id="m4M-YP-TcB"/>
+                        <outlet property="searchIcon" destination="FLA-Ia-46Q" id="YbM-or-njW"/>
+                        <outlet property="searchTextField" destination="FLA-Ia-46Q" id="CdT-RB-bfe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TRB-nX-T5K" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="751" y="98"/>
+            <point key="canvasLocation" x="750.72463768115949" y="97.767857142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FdB-A9-GW9">
@@ -177,11 +252,11 @@
         <image name="tabbarItemOne" width="24" height="24"/>
         <image name="tabbarItemThree" width="24" height="24"/>
         <image name="tabbarItemTwo" width="24" height="24"/>
+        <namedColor name="tabbarImageTint">
+            <color red="0.066666666666666666" green="0.054901960784313725" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
