@@ -28,6 +28,11 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CGb-pS-ToY">
                         <rect key="frame" x="0.0" y="0.0" width="85" height="120"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venom Let There Be Carnage" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1f2-6M-mNl">
                         <rect key="frame" x="97" y="0.0" width="218" height="17"/>
@@ -50,17 +55,27 @@
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="lmL-VI-DWN">
                         <rect key="frame" x="97" y="49" width="218" height="18"/>
-                        <color key="backgroundColor" red="0.26295091599999998" green="0.88040161130000005" blue="0.1183343097" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="NkQ-KZ-9a3"/>
                         </constraints>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tIp-K2-nGr">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="8" minimumInteritemSpacing="8" id="tIp-K2-nGr">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="gTV-IL-0wX" id="CdI-OZ-vE1"/>
+                            <outlet property="delegate" destination="gTV-IL-0wX" id="nDt-rF-6Cb"/>
+                        </connections>
                     </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrR-4e-xoR">
+                        <rect key="frame" x="97" y="76" width="218" height="12.5"/>
+                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -68,9 +83,11 @@
             <constraints>
                 <constraint firstItem="lmL-VI-DWN" firstAttribute="top" secondItem="gZ0-EF-CP6" secondAttribute="bottom" constant="8" id="5Bi-XM-TMi"/>
                 <constraint firstItem="CGb-pS-ToY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="9jN-UL-15r"/>
+                <constraint firstItem="nrR-4e-xoR" firstAttribute="leading" secondItem="lmL-VI-DWN" secondAttribute="leading" id="Fca-3B-XcH"/>
                 <constraint firstAttribute="bottom" secondItem="CGb-pS-ToY" secondAttribute="bottom" id="Hhh-5P-ETy"/>
                 <constraint firstItem="gZ0-EF-CP6" firstAttribute="leading" secondItem="1f2-6M-mNl" secondAttribute="leading" id="IGP-Z5-k7F"/>
                 <constraint firstItem="uRK-d5-dkh" firstAttribute="leading" secondItem="gZ0-EF-CP6" secondAttribute="trailing" constant="7" id="KOC-mz-4pJ"/>
+                <constraint firstItem="nrR-4e-xoR" firstAttribute="top" secondItem="lmL-VI-DWN" secondAttribute="bottom" constant="9" id="Lkz-r1-I9j"/>
                 <constraint firstItem="1f2-6M-mNl" firstAttribute="top" secondItem="CGb-pS-ToY" secondAttribute="top" id="NP2-t1-82q"/>
                 <constraint firstItem="gZ0-EF-CP6" firstAttribute="top" secondItem="1f2-6M-mNl" secondAttribute="bottom" constant="8" id="SGE-T3-yhO"/>
                 <constraint firstItem="uRK-d5-dkh" firstAttribute="centerY" secondItem="gZ0-EF-CP6" secondAttribute="centerY" id="Tbl-vO-pYL"/>
@@ -81,12 +98,14 @@
                 <constraint firstItem="1f2-6M-mNl" firstAttribute="leading" relation="lessThanOrEqual" secondItem="CGb-pS-ToY" secondAttribute="trailing" constant="12" id="gxF-bt-Pbf"/>
                 <constraint firstAttribute="trailing" secondItem="1f2-6M-mNl" secondAttribute="trailing" constant="12" id="h7R-Gi-X9q"/>
                 <constraint firstItem="lmL-VI-DWN" firstAttribute="leading" secondItem="1f2-6M-mNl" secondAttribute="leading" id="hcm-kf-IIY"/>
+                <constraint firstItem="nrR-4e-xoR" firstAttribute="trailing" secondItem="lmL-VI-DWN" secondAttribute="trailing" id="iBO-j0-FYh"/>
                 <constraint firstItem="lmL-VI-DWN" firstAttribute="trailing" secondItem="1f2-6M-mNl" secondAttribute="trailing" id="tmn-9g-wTe"/>
                 <constraint firstItem="CGb-pS-ToY" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.259939" id="wNC-PW-hBP"/>
             </constraints>
             <connections>
                 <outlet property="collection" destination="lmL-VI-DWN" id="IYh-48-wfl"/>
                 <outlet property="movieImage" destination="CGb-pS-ToY" id="K6s-jd-sZy"/>
+                <outlet property="overViewLabel" destination="nrR-4e-xoR" id="PoY-VZ-0zE"/>
                 <outlet property="ratingLabel" destination="uRK-d5-dkh" id="8dn-zK-wL4"/>
                 <outlet property="titleLabel" destination="1f2-6M-mNl" id="gZy-0t-Ys0"/>
             </connections>

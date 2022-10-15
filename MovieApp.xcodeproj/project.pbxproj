@@ -20,6 +20,11 @@
 		47C4B97128DF0496002E1E52 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4B97028DF0495002E1E52 /* NetworkManager.swift */; };
 		47C4B97328DF0C9B002E1E52 /* HomeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4B97228DF0C9B002E1E52 /* HomeHelper.swift */; };
 		47C4B97528DF0CA2002E1E52 /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4B97428DF0CA2002E1E52 /* HomeManager.swift */; };
+		47CB03F228FAD2F900193A54 /* LabelCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CB03F028FAD2F900193A54 /* LabelCollectionCell.swift */; };
+		47CB03F328FAD2F900193A54 /* LabelCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47CB03F128FAD2F900193A54 /* LabelCollectionCell.xib */; };
+		47CB03F528FAE27400193A54 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CB03F428FAE27400193A54 /* Genre.swift */; };
+		47CB03F728FAF79800193A54 /* GenreHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CB03F628FAF79800193A54 /* GenreHandler.swift */; };
+		47CB03F928FB013A00193A54 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CB03F828FB013A00193A54 /* UIImageView+Extension.swift */; };
 		47D3430228DE3FBD0000B72B /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D3430128DE3FBD0000B72B /* HomeController.swift */; };
 		47D3430428DE3FCB0000B72B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D3430328DE3FCB0000B72B /* HomeViewModel.swift */; };
 		47D3430628DE3FE40000B72B /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D3430528DE3FE40000B72B /* Movie.swift */; };
@@ -58,6 +63,11 @@
 		47C4B97028DF0495002E1E52 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		47C4B97228DF0C9B002E1E52 /* HomeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHelper.swift; sourceTree = "<group>"; };
 		47C4B97428DF0CA2002E1E52 /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
+		47CB03F028FAD2F900193A54 /* LabelCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionCell.swift; sourceTree = "<group>"; };
+		47CB03F128FAD2F900193A54 /* LabelCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelCollectionCell.xib; sourceTree = "<group>"; };
+		47CB03F428FAE27400193A54 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		47CB03F628FAF79800193A54 /* GenreHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreHandler.swift; sourceTree = "<group>"; };
+		47CB03F828FB013A00193A54 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		47D3430128DE3FBD0000B72B /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		47D3430328DE3FCB0000B72B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		47D3430528DE3FE40000B72B /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -108,6 +118,8 @@
 			children = (
 				470FAE8728E982B100E064D9 /* HorizontalMovieCell.swift */,
 				470FAE8828E982B100E064D9 /* HorizontalMovieCell.xib */,
+				47CB03F028FAD2F900193A54 /* LabelCollectionCell.swift */,
+				47CB03F128FAD2F900193A54 /* LabelCollectionCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -164,6 +176,7 @@
 				47D3431B28DE40890000B72B /* Fonts.swift */,
 				47D3431C28DE408A0000B72B /* NibReuseProtocol.swift */,
 				47D3431F28DE40A90000B72B /* AlertViewHelper.swift */,
+				47CB03F628FAF79800193A54 /* GenreHandler.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -245,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				47D3430528DE3FE40000B72B /* Movie.swift */,
+				47CB03F428FAE27400193A54 /* Genre.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,6 +282,7 @@
 				47D3431428DE403E0000B72B /* UICollectionView+Extension.swift */,
 				47D3431528DE403E0000B72B /* UITableView+Extension.swift */,
 				47D3431628DE403E0000B72B /* UIViewController+Extension.swift */,
+				47CB03F828FB013A00193A54 /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -357,6 +372,7 @@
 				47D3431128DE40110000B72B /* Inter-ExtraBold.ttf in Resources */,
 				476B77A728DE3B3A00E66099 /* Assets.xcassets in Resources */,
 				47D3431028DE40110000B72B /* Inter-Regular.ttf in Resources */,
+				47CB03F328FAD2F900193A54 /* LabelCollectionCell.xib in Resources */,
 				476B77A528DE3B3900E66099 /* Main.storyboard in Resources */,
 				470FAE8A28E982B100E064D9 /* HorizontalMovieCell.xib in Resources */,
 				47D3431228DE40110000B72B /* Inter-Black.ttf in Resources */,
@@ -414,18 +430,22 @@
 			files = (
 				47C4B96F28DF0125002E1E52 /* NetworkHelper.swift in Sources */,
 				47D3431D28DE408A0000B72B /* Fonts.swift in Sources */,
+				47CB03F528FAE27400193A54 /* Genre.swift in Sources */,
 				470FAE8328E97EB800E064D9 /* SearchController.swift in Sources */,
+				47CB03F728FAF79800193A54 /* GenreHandler.swift in Sources */,
 				47D3431E28DE408A0000B72B /* NibReuseProtocol.swift in Sources */,
 				47C4B97528DF0CA2002E1E52 /* HomeManager.swift in Sources */,
 				47D3430228DE3FBD0000B72B /* HomeController.swift in Sources */,
 				47C4B97328DF0C9B002E1E52 /* HomeHelper.swift in Sources */,
 				47D3431728DE403E0000B72B /* UICollectionView+Extension.swift in Sources */,
+				47CB03F928FB013A00193A54 /* UIImageView+Extension.swift in Sources */,
 				47D3430428DE3FCB0000B72B /* HomeViewModel.swift in Sources */,
 				470FAE8928E982B100E064D9 /* HorizontalMovieCell.swift in Sources */,
 				47D3432728DE41330000B72B /* Storyboarded.swift in Sources */,
 				470FAE8128E97DF900E064D9 /* TabBar.swift in Sources */,
 				47D3432528DE41060000B72B /* HomeCoordinator.swift in Sources */,
 				47D3430628DE3FE40000B72B /* Movie.swift in Sources */,
+				47CB03F228FAD2F900193A54 /* LabelCollectionCell.swift in Sources */,
 				47D3432328DE40D60000B72B /* Coordinator.swift in Sources */,
 				47D3431928DE403E0000B72B /* UIViewController+Extension.swift in Sources */,
 				470FAE8528E97EC200E064D9 /* FavoriteController.swift in Sources */,

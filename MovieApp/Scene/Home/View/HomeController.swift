@@ -24,7 +24,7 @@ class HomeController: UIViewController {
     }
     
     fileprivate func viewModelConfiguration() {
-        viewModel.getCategorItems()
+        viewModel.getGenreItems()
         viewModel.errorCallback = { [weak self] errorMessage in
             print("error: \(errorMessage)")
         }
@@ -53,7 +53,7 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width, height: 120)
+        return CGSize(width: collectionView.frame.width * 327 / 375, height: 120)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

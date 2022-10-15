@@ -11,6 +11,8 @@ class HomeViewModel {
     let manager = HomeManager.shared
     
     var movie: Movie?
+    var genreItems = [GenreElement]()
+    
     var errorCallback: ((String)->())?
     var successCallback: (()->())?
     
@@ -21,6 +23,18 @@ class HomeViewModel {
             } else {
                 self?.movie = movie
                 self?.successCallback?()
+            }
+        }
+    }
+    
+    func getGenreItems() {
+        manager.getGenres { [weak self] items, error in
+            if let error = error {
+                self?.errorCallback?(error.localizedDescription)
+            } else {
+                self?.genreItems = items ?? []
+                GenreHandler.shared.setItems(items: items ?? [])
+                self?.getCategorItems()
             }
         }
     }

@@ -38,7 +38,7 @@ struct MovieResult: Codable, MovieCellProtocol {
     }
     
     var titleText: String {
-        originalTitle ?? ""
+        title ?? ""
     }
     
     var ratingText: String {
@@ -46,6 +46,14 @@ struct MovieResult: Codable, MovieCellProtocol {
             return "\(voteAverage) / 10 IMDB"
         }
         return ""
+    }
+    
+    var genreItems: [String] {
+        GenreHandler.shared.getItemTitles(ids: genreIDS ?? [])
+    }
+    
+    var overViewText: String {
+        overview ?? ""
     }
 
     enum CodingKeys: String, CodingKey {

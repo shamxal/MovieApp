@@ -12,6 +12,8 @@ protocol MovieCellProtocol {
     var posterImage: String { get }
     var titleText: String { get }
     var ratingText: String { get }
+    var genreItems: [String] { get }
+    var overViewText: String { get }
 }
 
 class HorizontalMovieCell: UICollectionViewCell, ReuseProtocol, NibProtocol {
@@ -19,10 +21,35 @@ class HorizontalMovieCell: UICollectionViewCell, ReuseProtocol, NibProtocol {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var collection: UICollectionView!
+    @IBOutlet private weak var overViewLabel: UILabel!
+    
+    var items = [String]()
     
     func configure(data: MovieCellProtocol) {
         titleLabel.text = data.titleText
         ratingLabel.text = data.ratingText
-        movieImage.sd_setImage(with: URL(string: data.posterImage)!)
+        movieImage.loadURL(url: data.posterImage)
+        overViewLabel.text = data.overViewText
+        
+        items = data.genreItems
+        
+        collection.registerCell(type: LabelCollectionCell.self)
+        collection.reloadData()
+    }
+}
+
+extension HorizontalMovieCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        items.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: LabelCollectionCell = collectionView.dequeueCell(for: indexPath)
+        cell.configure(text: items[indexPath.item].uppercased())
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 60, height: collectionView.frame.height)
     }
 }
