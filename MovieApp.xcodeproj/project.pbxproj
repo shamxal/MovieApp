@@ -13,6 +13,8 @@
 		470FAE8928E982B100E064D9 /* HorizontalMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470FAE8728E982B100E064D9 /* HorizontalMovieCell.swift */; };
 		470FAE8A28E982B100E064D9 /* HorizontalMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 470FAE8828E982B100E064D9 /* HorizontalMovieCell.xib */; };
 		472064D328FB372300709BE1 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472064D228FB372300709BE1 /* SearchViewModel.swift */; };
+		474339CD28FC1FF400731BCC /* HomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474339CB28FC1FF400731BCC /* HomeHeader.swift */; };
+		474339CE28FC1FF400731BCC /* HomeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 474339CC28FC1FF400731BCC /* HomeHeader.xib */; };
 		476B779E28DE3B3900E66099 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476B779D28DE3B3900E66099 /* AppDelegate.swift */; };
 		476B77A528DE3B3900E66099 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 476B77A328DE3B3900E66099 /* Main.storyboard */; };
 		476B77A728DE3B3A00E66099 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 476B77A628DE3B3A00E66099 /* Assets.xcassets */; };
@@ -57,6 +59,8 @@
 		470FAE8728E982B100E064D9 /* HorizontalMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalMovieCell.swift; sourceTree = "<group>"; };
 		470FAE8828E982B100E064D9 /* HorizontalMovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalMovieCell.xib; sourceTree = "<group>"; };
 		472064D228FB372300709BE1 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		474339CB28FC1FF400731BCC /* HomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeader.swift; sourceTree = "<group>"; };
+		474339CC28FC1FF400731BCC /* HomeHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeader.xib; sourceTree = "<group>"; };
 		476B779A28DE3B3900E66099 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		476B779D28DE3B3900E66099 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		476B77A428DE3B3900E66099 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -153,6 +157,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		474339CA28FC1FE100731BCC /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				474339CB28FC1FF400731BCC /* HomeHeader.swift */,
+				474339CC28FC1FF400731BCC /* HomeHeader.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		474339CF28FC243E00731BCC /* ReusableView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ReusableView;
+			sourceTree = "<group>";
+		};
 		476B779128DE3B3900E66099 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +230,7 @@
 		47D342F628DE3EFC0000B72B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				474339CF28FC243E00731BCC /* ReusableView */,
 				47D3430728DE40110000B72B /* Font */,
 				47D3431A28DE40430000B72B /* Extension */,
 				47D3431B28DE40890000B72B /* Fonts.swift */,
@@ -289,6 +310,7 @@
 		47D342FF28DE3FAD0000B72B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				474339CA28FC1FE100731BCC /* Header */,
 				470FAE8628E9828000E064D9 /* Cells */,
 				47D3430128DE3FBD0000B72B /* HomeController.swift */,
 			);
@@ -417,6 +439,7 @@
 				476B77A528DE3B3900E66099 /* Main.storyboard in Resources */,
 				470FAE8A28E982B100E064D9 /* HorizontalMovieCell.xib in Resources */,
 				47D3431228DE40110000B72B /* Inter-Black.ttf in Resources */,
+				474339CE28FC1FF400731BCC /* HomeHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +500,7 @@
 				47D3431E28DE408A0000B72B /* NibReuseProtocol.swift in Sources */,
 				47C4B97528DF0CA2002E1E52 /* HomeManager.swift in Sources */,
 				47D3430228DE3FBD0000B72B /* HomeController.swift in Sources */,
+				474339CD28FC1FF400731BCC /* HomeHeader.swift in Sources */,
 				47C4B97328DF0C9B002E1E52 /* HomeHelper.swift in Sources */,
 				47D3431728DE403E0000B72B /* UICollectionView+Extension.swift in Sources */,
 				47CB03F928FB013A00193A54 /* UIImageView+Extension.swift in Sources */,

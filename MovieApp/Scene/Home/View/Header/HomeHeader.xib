@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="HomeHeader" customModule="MovieApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bub-JO-Ov1" userLabel="ViewTop">
+                    <rect key="frame" x="23" y="0.0" width="329" height="20"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="DXC-V6-f3Z">
+                    <rect key="frame" x="0.0" y="60" width="375" height="304"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="16" minimumInteritemSpacing="0.0" id="kFM-Hw-vDb">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="U6b-Vx-4bR" id="ztn-4r-lUU"/>
+                        <outlet property="delegate" destination="U6b-Vx-4bR" id="krg-FW-91Y"/>
+                    </connections>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiB-we-FZN" userLabel="ViewBottom">
+                    <rect key="frame" x="23" y="380" width="329" height="20"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Bub-JO-Ov1" firstAttribute="height" secondItem="U6b-Vx-4bR" secondAttribute="height" multiplier="0.05" id="9kz-mm-4LU"/>
+                <constraint firstItem="DXC-V6-f3Z" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="DcS-0d-Wk3"/>
+                <constraint firstItem="fiB-we-FZN" firstAttribute="top" secondItem="DXC-V6-f3Z" secondAttribute="bottom" constant="16" id="H3n-NT-Crx"/>
+                <constraint firstItem="Bub-JO-Ov1" firstAttribute="width" secondItem="U6b-Vx-4bR" secondAttribute="width" multiplier="0.877333" id="JfH-nk-Hzk"/>
+                <constraint firstItem="fiB-we-FZN" firstAttribute="trailing" secondItem="Bub-JO-Ov1" secondAttribute="trailing" id="Pim-zH-7qr"/>
+                <constraint firstItem="fiB-we-FZN" firstAttribute="bottom" secondItem="U6b-Vx-4bR" secondAttribute="bottom" id="UYj-nl-3TL"/>
+                <constraint firstItem="fiB-we-FZN" firstAttribute="leading" secondItem="Bub-JO-Ov1" secondAttribute="leading" id="Xff-j2-JcO"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="top" secondItem="Bub-JO-Ov1" secondAttribute="top" constant="44" id="dgv-Cf-TIz"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="DXC-V6-f3Z" secondAttribute="trailing" id="iwo-1l-jVj"/>
+                <constraint firstItem="fiB-we-FZN" firstAttribute="height" secondItem="Bub-JO-Ov1" secondAttribute="height" id="rhy-aX-uoi"/>
+                <constraint firstItem="DXC-V6-f3Z" firstAttribute="top" secondItem="VXr-Tz-HHm" secondAttribute="top" constant="16" id="xPd-i2-ICq"/>
+                <constraint firstItem="Bub-JO-Ov1" firstAttribute="centerX" secondItem="VXr-Tz-HHm" secondAttribute="centerX" id="zie-x7-lZn"/>
+            </constraints>
+            <connections>
+                <outlet property="collection" destination="DXC-V6-f3Z" id="sNt-ZX-nb9"/>
+                <outlet property="topView" destination="Bub-JO-Ov1" id="Mwg-LV-JzZ"/>
+                <outlet property="viewBottom" destination="fiB-we-FZN" id="ojk-Cb-Ubs"/>
+            </connections>
+            <point key="canvasLocation" x="138.40579710144928" y="153.34821428571428"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

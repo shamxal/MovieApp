@@ -21,6 +21,7 @@ class HomeController: UIViewController {
     
     fileprivate func collectionSetup() {
         collection.registerCell(type: HorizontalMovieCell.self)
+        collection.registerSupplementaryView(type: HomeHeader.self, ofKind: UICollectionView.elementKindSectionHeader)
     }
     
     fileprivate func viewModelConfiguration() {
@@ -45,11 +46,16 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HorizontalMovieCell = collectionView.dequeueCell(for: indexPath)
-//        print(viewModel.movie?.results?[indexPath.item].originalTitle ?? "")
         if let movie = viewModel.movie?.results?[indexPath.item] {
             cell.configure(data: movie)
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header: HomeHeader = collectionView.dequeueSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath)
+        header.backgroundColor = .purple
+        return header
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
