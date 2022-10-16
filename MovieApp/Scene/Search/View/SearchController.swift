@@ -41,7 +41,8 @@ class SearchController: UIViewController {
     
     @IBAction func searchTextFieldAction(_ sender: Any) {
         if !(searchTextField.text?.isEmpty ?? false) {
-            viewModel.getItems(text: searchTextField.text ?? "")
+            viewModel.text = searchTextField.text ?? ""
+            viewModel.getItems()
         }
     }
 }
@@ -61,6 +62,10 @@ extension SearchController: UICollectionViewDataSource, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width * 360 / 375, height: 120)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        viewModel.pagination(index: indexPath.item)
     }
 }
 
