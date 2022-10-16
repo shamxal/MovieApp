@@ -23,6 +23,8 @@ class HorizontalMovieCell: UICollectionViewCell, ReuseProtocol, NibProtocol {
     @IBOutlet private weak var collection: UICollectionView!
     @IBOutlet private weak var overViewLabel: UILabel!
     
+    @IBOutlet private weak var collectionTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var collectionHeightConstraint: NSLayoutConstraint!
     var items = [String]()
     
     func configure(data: MovieCellProtocol) {
@@ -31,10 +33,14 @@ class HorizontalMovieCell: UICollectionViewCell, ReuseProtocol, NibProtocol {
         movieImage.loadURL(url: data.posterImage)
         overViewLabel.text = data.overViewText
         
-        items = data.genreItems
-        
-        collection.registerCell(type: LabelCollectionCell.self)
-        collection.reloadData()
+        if data.genreItems.isEmpty {
+            collectionTopConstraint.constant = 0
+            collectionHeightConstraint.constant = 0
+        } else {
+            items = data.genreItems
+            collection.registerCell(type: LabelCollectionCell.self)
+            collection.reloadData()
+        }
     }
 }
 

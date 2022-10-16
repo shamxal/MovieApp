@@ -104,6 +104,8 @@
             </constraints>
             <connections>
                 <outlet property="collection" destination="lmL-VI-DWN" id="IYh-48-wfl"/>
+                <outlet property="collectionHeightConstraint" destination="NkQ-KZ-9a3" id="ArU-GH-qqC"/>
+                <outlet property="collectionTopConstraint" destination="5Bi-XM-TMi" id="raY-Ni-UYU"/>
                 <outlet property="movieImage" destination="CGb-pS-ToY" id="K6s-jd-sZy"/>
                 <outlet property="overViewLabel" destination="nrR-4e-xoR" id="PoY-VZ-0zE"/>
                 <outlet property="ratingLabel" destination="uRK-d5-dkh" id="8dn-zK-wL4"/>
