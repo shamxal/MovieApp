@@ -41,22 +41,20 @@ class SearchController: UIViewController {
     
     @IBAction func searchTextFieldAction(_ sender: Any) {
         if !(searchTextField.text?.isEmpty ?? false) {
-            viewModel.text = searchTextField.text ?? ""
-            viewModel.getItems()
+            viewModel.search(text: searchTextField.text ?? "")
+            collection.reloadData()
         }
     }
 }
 
 extension SearchController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.item?.results?.count ?? 0
+        viewModel.movieItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HorizontalMovieCell = collectionView.dequeueCell(for: indexPath)
-        if let movie = viewModel.item?.results?[indexPath.item] {
-            cell.configure(data: movie)
-        }
+        cell.configure(data: viewModel.movieItems[indexPath.item])
         return cell
     }
     
@@ -72,7 +70,7 @@ extension SearchController: UICollectionViewDataSource, UICollectionViewDelegate
 extension SearchController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.text?.isEmpty ?? false {
-            viewModel.item = nil
+            viewModel.resetDatas()
             collection.reloadData()
         }
         textField.resignFirstResponder()
