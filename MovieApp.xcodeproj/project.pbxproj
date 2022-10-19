@@ -29,6 +29,10 @@
 		478DAE29290080A500679F83 /* SubscriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DAE28290080A500679F83 /* SubscriptionController.swift */; };
 		47A58FA828FB38A100A717A4 /* SearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A58FA728FB38A100A717A4 /* SearchHelper.swift */; };
 		47A58FAA28FB38A700A717A4 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A58FA928FB38A700A717A4 /* SearchManager.swift */; };
+		47B527F52900853900E97B67 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B527F42900853900E97B67 /* Color.swift */; };
+		47B527F72900860F00E97B67 /* MoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B527F62900860F00E97B67 /* MoreCoordinator.swift */; };
+		47B527FA29008A8E00E97B67 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B527F829008A8E00E97B67 /* SubscriptionCell.swift */; };
+		47B527FB29008A8E00E97B67 /* SubscriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47B527F929008A8E00E97B67 /* SubscriptionCell.xib */; };
 		47C4B96F28DF0125002E1E52 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4B96E28DF0125002E1E52 /* NetworkHelper.swift */; };
 		47C4B97128DF0496002E1E52 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4B97028DF0495002E1E52 /* NetworkManager.swift */; };
 		47C4B97328DF0C9B002E1E52 /* HomeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4B97228DF0C9B002E1E52 /* HomeHelper.swift */; };
@@ -85,6 +89,10 @@
 		478DAE28290080A500679F83 /* SubscriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionController.swift; sourceTree = "<group>"; };
 		47A58FA728FB38A100A717A4 /* SearchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHelper.swift; sourceTree = "<group>"; };
 		47A58FA928FB38A700A717A4 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
+		47B527F42900853900E97B67 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		47B527F62900860F00E97B67 /* MoreCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCoordinator.swift; sourceTree = "<group>"; };
+		47B527F829008A8E00E97B67 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
+		47B527F929008A8E00E97B67 /* SubscriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscriptionCell.xib; sourceTree = "<group>"; };
 		47C4B96E28DF0125002E1E52 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		47C4B97028DF0495002E1E52 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		47C4B97228DF0C9B002E1E52 /* HomeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHelper.swift; sourceTree = "<group>"; };
@@ -230,6 +238,7 @@
 		478DAE19290079A600679F83 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				47B527F62900860F00E97B67 /* MoreCoordinator.swift */,
 				478DAE2029007A0600679F83 /* Model */,
 				478DAE1F29007A0000679F83 /* View */,
 				478DAE1C290079F200679F83 /* ViewModel */,
@@ -268,6 +277,8 @@
 			children = (
 				478DAE2329007C7400679F83 /* MoreCell.swift */,
 				478DAE2429007C7400679F83 /* MoreCell.xib */,
+				47B527F829008A8E00E97B67 /* SubscriptionCell.swift */,
+				47B527F929008A8E00E97B67 /* SubscriptionCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -301,6 +312,7 @@
 				47D3431C28DE408A0000B72B /* NibReuseProtocol.swift */,
 				47D3431F28DE40A90000B72B /* AlertViewHelper.swift */,
 				47CB03F628FAF79800193A54 /* GenreHandler.swift */,
+				47B527F42900853900E97B67 /* Color.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -501,6 +513,7 @@
 				476B77A728DE3B3A00E66099 /* Assets.xcassets in Resources */,
 				47D3431028DE40110000B72B /* Inter-Regular.ttf in Resources */,
 				47CB03F328FAD2F900193A54 /* LabelCollectionCell.xib in Resources */,
+				47B527FB29008A8E00E97B67 /* SubscriptionCell.xib in Resources */,
 				476B77A528DE3B3900E66099 /* Main.storyboard in Resources */,
 				470FAE8A28E982B100E064D9 /* HorizontalMovieCell.xib in Resources */,
 				47D3431228DE40110000B72B /* Inter-Black.ttf in Resources */,
@@ -563,6 +576,7 @@
 				47C4B96F28DF0125002E1E52 /* NetworkHelper.swift in Sources */,
 				47D3431D28DE408A0000B72B /* Fonts.swift in Sources */,
 				478DAE2529007C7400679F83 /* MoreCell.swift in Sources */,
+				47B527F72900860F00E97B67 /* MoreCoordinator.swift in Sources */,
 				47CB03F528FAE27400193A54 /* Genre.swift in Sources */,
 				470FAE8328E97EB800E064D9 /* SearchController.swift in Sources */,
 				47CB03F728FAF79800193A54 /* GenreHandler.swift in Sources */,
@@ -575,6 +589,7 @@
 				47D3431728DE403E0000B72B /* UICollectionView+Extension.swift in Sources */,
 				478DAE1E290079FC00679F83 /* MoreViewModel.swift in Sources */,
 				47CB03F928FB013A00193A54 /* UIImageView+Extension.swift in Sources */,
+				47B527F52900853900E97B67 /* Color.swift in Sources */,
 				47D3430428DE3FCB0000B72B /* HomeViewModel.swift in Sources */,
 				470FAE8928E982B100E064D9 /* HorizontalMovieCell.swift in Sources */,
 				47D3432728DE41330000B72B /* Storyboarded.swift in Sources */,
@@ -588,6 +603,7 @@
 				47D3432328DE40D60000B72B /* Coordinator.swift in Sources */,
 				47D3431928DE403E0000B72B /* UIViewController+Extension.swift in Sources */,
 				478DAE29290080A500679F83 /* SubscriptionController.swift in Sources */,
+				47B527FA29008A8E00E97B67 /* SubscriptionCell.swift in Sources */,
 				470FAE8528E97EC200E064D9 /* FavoriteController.swift in Sources */,
 				47D3432028DE40A90000B72B /* AlertViewHelper.swift in Sources */,
 				47C4B97128DF0496002E1E52 /* NetworkManager.swift in Sources */,

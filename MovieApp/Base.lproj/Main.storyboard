@@ -15,6 +15,9 @@
         <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
         </array>
+        <array key="Inter-SemiBold.ttf">
+            <string>Inter-SemiBold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--MovieApp-->
@@ -267,15 +270,15 @@
             </objects>
             <point key="canvasLocation" x="718.84057971014499" y="1130.3571428571429"/>
         </scene>
-        <!--View Controller-->
+        <!--Subscription Controller-->
         <scene sceneID="K6E-jr-Riz">
             <objects>
-                <viewController id="Z8B-FO-1li" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SubscriptionController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Z8B-FO-1li" customClass="SubscriptionController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EDm-aY-l5g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sau-ld-3LU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your plan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sau-ld-3LU">
                                 <rect key="frame" x="20" y="67.5" width="342" height="17"/>
                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -289,18 +292,67 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="Z8B-FO-1li" eventType="touchUpInside" id="9ab-pb-LLB"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6YV-DX-15r">
+                                <rect key="frame" x="20" y="108" width="374" height="660"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="JGT-Xs-DCZ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Z8B-FO-1li" id="6so-aP-8QF"/>
+                                    <outlet property="delegate" destination="Z8B-FO-1li" id="JPx-UP-lmy"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5p-9Y-jYc">
+                                <rect key="frame" x="20" y="788" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="78R-gR-7fY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" name="borderColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continueButtonTapped:" destination="Z8B-FO-1li" eventType="touchUpInside" id="Ewn-Zt-QAB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DGq-Je-tqm"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6YV-DX-15r" firstAttribute="leading" secondItem="x5p-9Y-jYc" secondAttribute="leading" id="6nW-EW-bI9"/>
+                            <constraint firstItem="6YV-DX-15r" firstAttribute="top" secondItem="1e3-Nv-6wG" secondAttribute="bottom" constant="20" id="CkD-47-p7f"/>
                             <constraint firstItem="1e3-Nv-6wG" firstAttribute="leading" secondItem="sau-ld-3LU" secondAttribute="trailing" constant="8" symbolic="YES" id="F4q-rQ-tMw"/>
                             <constraint firstItem="sau-ld-3LU" firstAttribute="leading" secondItem="DGq-Je-tqm" secondAttribute="leading" constant="20" id="FNr-px-C7Y"/>
+                            <constraint firstItem="DGq-Je-tqm" firstAttribute="bottom" secondItem="x5p-9Y-jYc" secondAttribute="bottom" constant="24" id="LW5-78-0aG"/>
                             <constraint firstItem="1e3-Nv-6wG" firstAttribute="top" secondItem="DGq-Je-tqm" secondAttribute="top" constant="20" id="MPt-Ro-ppQ"/>
                             <constraint firstItem="DGq-Je-tqm" firstAttribute="trailing" secondItem="1e3-Nv-6wG" secondAttribute="trailing" constant="20" id="O3I-gy-AmR"/>
+                            <constraint firstItem="6YV-DX-15r" firstAttribute="trailing" secondItem="x5p-9Y-jYc" secondAttribute="trailing" id="RmB-mb-CIF"/>
+                            <constraint firstItem="x5p-9Y-jYc" firstAttribute="leading" secondItem="sau-ld-3LU" secondAttribute="leading" id="Ty3-gb-1Ji"/>
+                            <constraint firstItem="x5p-9Y-jYc" firstAttribute="trailing" secondItem="1e3-Nv-6wG" secondAttribute="trailing" id="b5r-DG-EGY"/>
                             <constraint firstItem="sau-ld-3LU" firstAttribute="centerY" secondItem="1e3-Nv-6wG" secondAttribute="centerY" id="cfH-xn-4PU"/>
+                            <constraint firstItem="x5p-9Y-jYc" firstAttribute="top" secondItem="6YV-DX-15r" secondAttribute="bottom" constant="20" id="k5e-jG-rO1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collection" destination="6YV-DX-15r" id="Bhr-vg-caK"/>
+                        <outlet property="continueButton" destination="x5p-9Y-jYc" id="HOW-9d-Dlj"/>
+                        <outlet property="titleLabel" destination="sau-ld-3LU" id="qOy-jf-Cbh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAd-1W-DH0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -352,6 +404,9 @@
         <image name="tabbarItemOne" width="24" height="24"/>
         <image name="tabbarItemThree" width="24" height="24"/>
         <image name="tabbarItemTwo" width="24" height="24"/>
+        <namedColor name="borderColor">
+            <color red="0.17647058823529413" green="0.14901960784313725" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="tabbarImageTint">
             <color red="0.066666666666666666" green="0.054901960784313725" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
