@@ -14,6 +14,8 @@ class SubscriptionController: UIViewController, Storyboarded {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var continueButton: UIButton!
     
+    let viewModel = SubscriptionViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,7 +23,7 @@ class SubscriptionController: UIViewController, Storyboarded {
     }
     
     fileprivate func configureUI() {
-        collection.backgroundColor = .red
+        collection.registerCell(type: TitleCell.self)
         collection.registerCell(type: SubscriptionCell.self)
         continueButton.layer.borderWidth = 1
         continueButton.layer.borderColor = UIColor.getColor(color: .borderColor)?.cgColor
@@ -38,17 +40,26 @@ class SubscriptionController: UIViewController, Storyboarded {
 
 extension SubscriptionController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        2
+        3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.item == 2 {
+            let cell: TitleCell = collectionView.dequeueCell(for: indexPath)
+            cell.configure(title: viewModel.descriptionText)
+            return cell
+        }
         let cell: SubscriptionCell = collectionView.dequeueCell(for: indexPath)
         cell.backgroundColor = .green
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width, height: 250)
+        let width = collectionView.frame.width
+        if indexPath.item == 2 {
+            return CGSize(width: width, height: TitleCell.textHeight(viewModel.descriptionText, width: width))
+        }
+        return CGSize(width: width, height: 250)
     }
 }
 

@@ -18,6 +18,8 @@ class MoreCoordinator: Coordinator {
     
     func showSubscription() {
         let controller = SubscriptionController.instantiate(name: .main)
-        navigationController.presentPanModal(controller)
+//        navigationController.presentPanModal(controller)
+        controller.modalPresentationStyle = .overFullScreen
+        navigationController.present(controller, animated: true)
     }
 }
