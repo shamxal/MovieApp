@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Medium.ttf">
+            <string>Inter-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PeopleCell" customModule="MovieApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="295" height="411"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="295" height="411"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jason Statham" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY9-HR-SXx">
+                        <rect key="frame" x="0.0" y="391.5" width="295" height="19.5"/>
+                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jel-FB-dcz">
+                        <rect key="frame" x="0.0" y="0.0" width="295" height="379.5"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="lY9-HR-SXx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Czv-ie-2b6"/>
+                <constraint firstItem="Jel-FB-dcz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Dep-yt-Yim"/>
+                <constraint firstAttribute="bottom" secondItem="lY9-HR-SXx" secondAttribute="bottom" symbolic="YES" id="YF2-bO-ICS"/>
+                <constraint firstItem="lY9-HR-SXx" firstAttribute="top" secondItem="Jel-FB-dcz" secondAttribute="bottom" constant="12" id="dmW-Se-Qti"/>
+                <constraint firstItem="Jel-FB-dcz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="g08-Nd-RMa"/>
+                <constraint firstAttribute="trailing" secondItem="Jel-FB-dcz" secondAttribute="trailing" id="nPG-d9-f0P"/>
+                <constraint firstAttribute="trailing" secondItem="lY9-HR-SXx" secondAttribute="trailing" id="ypm-lj-0Md"/>
+            </constraints>
+            <size key="customSize" width="295" height="411"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <integer key="value" value="8"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="peopleImage" destination="Jel-FB-dcz" id="9Mu-AJ-Hf4"/>
+                <outlet property="titleLabel" destination="lY9-HR-SXx" id="Kn8-J0-X9A"/>
+            </connections>
+            <point key="canvasLocation" x="-286.23188405797106" y="169.75446428571428"/>
+        </collectionViewCell>
+    </objects>
+</document>

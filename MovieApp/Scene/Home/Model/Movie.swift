@@ -34,7 +34,7 @@ struct MovieResult: Codable, MovieCellProtocol {
     let voteCount: Int?
     
     var posterImage: String {
-        "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
+        NetworkHelper.shared.getImagePath(url: posterPath ?? "")
     }
     
     var titleText: String {

@@ -212,17 +212,43 @@
             </objects>
             <point key="canvasLocation" x="-30" y="-238"/>
         </scene>
-        <!--Favorite Controller-->
+        <!--Popular People-->
         <scene sceneID="3Cl-DY-cjh">
             <objects>
-                <viewController storyboardIdentifier="FavoriteController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HdD-d5-rDj" customClass="FavoriteController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PeopleController" id="HdD-d5-rDj" customClass="PeopleController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YAX-Lb-PI8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nIh-gS-HWC">
+                                <rect key="frame" x="25" y="88" width="364" height="725"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZhN-eh-Bj1">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HdD-d5-rDj" id="jgJ-Lw-ZqC"/>
+                                    <outlet property="delegate" destination="HdD-d5-rDj" id="vq3-qk-12C"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="k2W-oi-3Ey"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nIh-gS-HWC" firstAttribute="centerX" secondItem="k2W-oi-3Ey" secondAttribute="centerX" id="VRn-D2-GxF"/>
+                            <constraint firstItem="nIh-gS-HWC" firstAttribute="width" secondItem="YAX-Lb-PI8" secondAttribute="width" multiplier="0.88" id="YbQ-ga-vTI"/>
+                            <constraint firstItem="nIh-gS-HWC" firstAttribute="height" secondItem="YAX-Lb-PI8" secondAttribute="height" multiplier="0.809152" id="hQZ-si-t62"/>
+                            <constraint firstItem="nIh-gS-HWC" firstAttribute="centerY" secondItem="k2W-oi-3Ey" secondAttribute="centerY" id="iuA-oo-GZd"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="TPd-5t-Q6d"/>
+                    <navigationItem key="navigationItem" title="Popular People" id="TPd-5t-Q6d"/>
+                    <connections>
+                        <outlet property="collection" destination="nIh-gS-HWC" id="8N1-Mm-tmU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aQ-8n-NY0" sceneMemberID="firstResponder"/>
             </objects>
