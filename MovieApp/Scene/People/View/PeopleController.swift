@@ -50,4 +50,8 @@ extension PeopleController: UICollectionViewDataSource, UICollectionViewDelegate
         let height = collectionView.frame.height * 270 / 812
         return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        viewModel.pagination(index: indexPath.item)
+    }
 }

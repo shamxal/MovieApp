@@ -16,7 +16,7 @@ class PeopleViewModel {
     var errorCallback: ((String)->())?
     
     func getPopularPeople() {
-        PeopleManager.shared.getPopularPeople(page: item?.page ?? 0 + 1) { [weak self] item, error in
+        PeopleManager.shared.getPopularPeople(page: (item?.page ?? 0) + 1) { [weak self] item, error in
             if let error = error {
                 self?.errorCallback?(error.localizedDescription)
             } else {
