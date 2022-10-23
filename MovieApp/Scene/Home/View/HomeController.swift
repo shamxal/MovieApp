@@ -25,17 +25,23 @@ class HomeController: UIViewController {
     }
     
     fileprivate func viewModelConfiguration() {
+        viewModel.coordinator = HomeCoordinator(navigationController: navigationController ?? UINavigationController())
         viewModel.getGenreItems()
+        viewModel.getNowPlaying()
         viewModel.errorCallback = { [weak self] errorMessage in
             print("error: \(errorMessage)")
         }
         viewModel.successCallback = { [weak self] in
             self?.collection.reloadData()
         }
+        viewModel.coordinator?.filterSelection = { [weak self] category in
+            self?.viewModel.movieCategory = category
+            self?.viewModel.getCategorItems()
+        }
     }
     
     @IBAction func filterButtonTapped(_ sender: Any) {
-        
+        viewModel.coordinator?.showFilter()
     }
 }
 
@@ -54,9 +60,7 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header: HomeHeader = collectionView.dequeueSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath)
-        if let results = viewModel.movie?.results {
-            header.configure(data: results)
-        }
+        header.configure(data: viewModel.nowPlayingItems)
         return header
     }
     

@@ -8,7 +8,7 @@
 import Foundation
 
 class PeopleViewModel {
-    
+    var coordinator: PeopleCoordinator?    
     var item: People?
     var peopleItems = [PeopleResult]()
     

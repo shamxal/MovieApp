@@ -8,16 +8,33 @@
 import Foundation
 
 class HomeViewModel {
+    var coordinator: HomeCoordinator?
+    
     let manager = HomeManager.shared
     
     var movie: Movie?
+    var movieCategory: MovieCategory = .popular
     var genreItems = [GenreElement]()
+    var nowPlayingItems = [MovieResult]()
     
     var errorCallback: ((String)->())?
     var successCallback: (()->())?
     
+    func getNowPlaying() {
+        manager.getCategoryMovies(type: .nowPlaying) { [weak self] movie, error in
+            if let error = error {
+                self?.errorCallback?(error.localizedDescription)
+            } else {
+                if let movie = movie {
+                    self?.nowPlayingItems = movie.results ?? []
+                    self?.successCallback?()
+                }
+            }
+        }
+    }
+    
     func getCategorItems() {
-        manager.getCategoryMovies { [weak self] movie, error in
+        manager.getCategoryMovies(type: movieCategory) { [weak self] movie, error in
             if let error = error {
                 self?.errorCallback?(error.localizedDescription)
             } else {

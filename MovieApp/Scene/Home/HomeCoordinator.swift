@@ -11,6 +11,8 @@ import UIKit
 class HomeCoordinator: Coordinator {
     var navigationController: UINavigationController
     
+    var filterSelection: ((MovieCategory)->())?
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
@@ -20,6 +22,10 @@ class HomeCoordinator: Coordinator {
     }
     
     func showFilter() {
-        
+        let controller = FilterController.instantiate(name: .main)
+        controller.selectionCallback = { [weak self] category in
+            self?.filterSelection?(category)
+        }
+        navigationController.presentPanModal(controller)
     }
 }
