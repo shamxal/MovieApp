@@ -16,6 +16,9 @@ class PeopleCoordinator: Coordinator {
     }
     
     func showPeopleMovies(id: Int) {
-        
+        let controller = MovieListController.instantiate(name: .main)
+        controller.viewModel = MovieListViewModel(id: id, type: .person)
+        controller.hidesBottomBarWhenPushed = true
+        navigationController.show(controller, sender: nil)
     }
 }

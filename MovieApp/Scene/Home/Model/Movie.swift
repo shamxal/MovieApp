@@ -32,6 +32,9 @@ struct MovieResult: Codable, MovieCellProtocol {
     let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
+    let character, creditID: String?
+    let order: Int?
+    let department, job: String?
     
     var posterImage: String {
         NetworkHelper.shared.getImagePath(url: posterPath ?? "")
@@ -43,7 +46,7 @@ struct MovieResult: Codable, MovieCellProtocol {
     
     var ratingText: String {
         if let voteAverage = voteAverage {
-            return "\(voteAverage) / 10 IMDB"
+            return "\(String(format: "%.1f", voteAverage)) / 10 IMDB"
         }
         return ""
     }
@@ -69,5 +72,8 @@ struct MovieResult: Codable, MovieCellProtocol {
         case title, video
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
+        case character
+        case creditID = "credit_id"
+        case order, department, job
     }
 }

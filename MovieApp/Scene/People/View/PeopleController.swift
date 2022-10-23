@@ -31,6 +31,7 @@ class PeopleController: UIViewController {
         viewModel.successCallback = { [weak self] in
             self?.collection.reloadData()
         }
+        viewModel.coordinator = PeopleCoordinator(navigationController: navigationController ?? UINavigationController())
     }
 }
 
@@ -43,6 +44,10 @@ extension PeopleController: UICollectionViewDataSource, UICollectionViewDelegate
         let cell: PeopleCell = collectionView.dequeueCell(for: indexPath)
         cell.configure(data: viewModel.peopleItems[indexPath.item])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.coordinator?.showPeopleMovies(id: viewModel.peopleItems[indexPath.item].id ?? 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
