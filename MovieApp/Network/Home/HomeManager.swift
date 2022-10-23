@@ -10,7 +10,7 @@ import Foundation
 
 protocol HomeManagerProtocol {
     func getGenres(complete: @escaping(([GenreElement]?, Error?)->()))
-    func getCategoryMovies(type: MovieCategory, complete: @escaping((Movie?, Error?)->()))
+    func getCategoryMovies(type: MovieCategory, page: Int, complete: @escaping((Movie?, Error?)->()))
 }
 
 class HomeManager: HomeManagerProtocol {
@@ -29,7 +29,7 @@ class HomeManager: HomeManagerProtocol {
         }
     }
     
-    func getCategoryMovies(type: MovieCategory, complete: @escaping ((Movie?, Error?) -> ())) {
+    func getCategoryMovies(type: MovieCategory, page: Int, complete: @escaping ((Movie?, Error?) -> ())) {
         var url = ""
         switch type {
         case .nowPlaying:
@@ -44,7 +44,7 @@ class HomeManager: HomeManagerProtocol {
             url = HomeEndpoint.upcoming.path
         }
         NetworkManager.shared.request(type: Movie.self,
-                                      url: url,
+                                      url: url + "&page=\(page)",
                                       method: .get) { response in
             switch response {
             case .success(let data):

@@ -47,14 +47,12 @@ class HomeController: UIViewController {
 
 extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.numberOfItems()
+        viewModel.movieItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HorizontalMovieCell = collectionView.dequeueCell(for: indexPath)
-        if let movie = viewModel.movie?.results?[indexPath.item] {
-            cell.configure(data: movie)
-        }
+        cell.configure(data: viewModel.movieItems[indexPath.item])
         return cell
     }
     
@@ -70,5 +68,9 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         CGSize(width: collectionView.frame.width, height: 365)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        viewModel.pagination(index: indexPath.item)
     }
 }

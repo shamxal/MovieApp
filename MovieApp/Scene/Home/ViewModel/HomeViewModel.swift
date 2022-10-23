@@ -13,15 +13,17 @@ class HomeViewModel {
     let manager = HomeManager.shared
     
     var movie: Movie?
-    var movieCategory: MovieCategory = .popular
+    var movieItems = [MovieResult]()
     var genreItems = [GenreElement]()
     var nowPlayingItems = [MovieResult]()
+    
+    var movieCategory: MovieCategory = .popular
     
     var errorCallback: ((String)->())?
     var successCallback: (()->())?
     
     func getNowPlaying() {
-        manager.getCategoryMovies(type: .nowPlaying) { [weak self] movie, error in
+        manager.getCategoryMovies(type: .nowPlaying, page: 1) { [weak self] movie, error in
             if let error = error {
                 self?.errorCallback?(error.localizedDescription)
             } else {
@@ -34,11 +36,14 @@ class HomeViewModel {
     }
     
     func getCategorItems() {
-        manager.getCategoryMovies(type: movieCategory) { [weak self] movie, error in
+        manager.getCategoryMovies(type: movieCategory, page: (movie?.page ?? 0) + 1) { [weak self] movie, error in
             if let error = error {
                 self?.errorCallback?(error.localizedDescription)
             } else {
                 self?.movie = movie
+                if let movieItems = movie?.results, !movieItems.isEmpty {
+                    self?.movieItems.append(contentsOf: movieItems)
+                }
                 self?.successCallback?()
             }
         }
@@ -56,7 +61,11 @@ class HomeViewModel {
         }
     }
     
-    func numberOfItems() -> Int {
-        movie?.results?.count ?? 0
+    func pagination(index: Int) {
+        if let item = movie {
+            if (item.page ?? 0 <= item.totalPages ?? 0) && index == (movieItems.count - 1) {
+                getCategorItems()
+            }
+        }
     }
 }
