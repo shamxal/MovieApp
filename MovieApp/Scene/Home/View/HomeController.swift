@@ -36,6 +36,7 @@ class HomeController: UIViewController {
         }
         viewModel.coordinator?.filterSelection = { [weak self] category in
             self?.viewModel.movieCategory = category
+            self?.viewModel.movieItems.removeAll()
             self?.viewModel.getCategorItems()
         }
     }

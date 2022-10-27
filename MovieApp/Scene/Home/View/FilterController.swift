@@ -21,8 +21,6 @@ class FilterController: UIViewController, Storyboarded {
         
         table.registerCell(type: TableViewTitleCell.self)
     }
-    
-    
 }
 
 extension FilterController: UITableViewDataSource, UITableViewDelegate {
@@ -54,5 +52,9 @@ extension FilterController: PanModalPresentable {
     
     var shortFormHeight: PanModalHeight {
         return .contentHeight(312)
+    }
+    
+    var cornerRadius: CGFloat {
+        16
     }
 }
