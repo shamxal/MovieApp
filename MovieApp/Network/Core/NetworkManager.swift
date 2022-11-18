@@ -14,13 +14,13 @@ class NetworkManager {
                              url: String,
                              method: HTTPMethod,
                              completion: @escaping((Result<T, ErrorTypes>)->())) {
-        AF.request(url, method: method).responseData { response in
+        AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "", method: method).responseData { response in
             switch response.result {
             case .success(let data):
                 self.handleResponse(data: data) { response in
                     completion(response)
                 }
-            case .failure(let error):
+            case .failure(let _):
                 completion(.failure(.generalError))
             }
         }
