@@ -11,9 +11,6 @@ enum PeopleEndpoint: String {
     case popular = "person/popular"
     
     var path: String {
-        switch self {
-        case .popular:
-            return NetworkHelper.shared.requestUrl(url: PeopleEndpoint.popular.rawValue)
-        }
+        NetworkHelper.shared.requestUrl(url: self.rawValue)
     }
 }
