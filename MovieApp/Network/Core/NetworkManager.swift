@@ -6,6 +6,7 @@
 //
 
 import Alamofire
+import Foundation
 
 class NetworkManager {    
     static let shared = NetworkManager()
@@ -20,7 +21,7 @@ class NetworkManager {
                 self.handleResponse(data: data) { response in
                     completion(response)
                 }
-            case .failure(let _):
+            case .failure(_):
                 completion(.failure(.generalError))
             }
         }

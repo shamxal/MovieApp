@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 protocol MovieCellProtocol {
     var posterImage: String { get }
