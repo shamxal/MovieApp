@@ -14,6 +14,8 @@ class HomeHeader: UICollectionReusableView, ReuseProtocol, NibProtocol {
     
     var items = [MovieResult]()
     
+    var didItemSelected: ((Int) -> Void)?
+    
     override func layoutSubviews() {
         collection.registerCell(type: VerticalMovieCell.self)
     }
@@ -33,6 +35,12 @@ extension HomeHeader: UICollectionViewDataSource, UICollectionViewDelegate, UICo
         let cell: VerticalMovieCell = collectionView.dequeueCell(for: indexPath)
         cell.configure(data: items[indexPath.item])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let id = items[indexPath.item].id {
+            didItemSelected?(id)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

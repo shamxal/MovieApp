@@ -8,14 +8,16 @@
 import Foundation
 
 class MovieViewModel {
-    var movieId: Int
+    private var movieId: Int
     var movieData: MovieDetail?
+    private var coordinator: MovieDetailCoordinator
     
     var successCallback: (() -> Void)?
     var errorCallback: ((String) -> Void)?
     
-    init(movieId: Int) {
+    init(movieId: Int, coordinator: MovieDetailCoordinator) {
         self.movieId = movieId
+        self.coordinator = coordinator
         
         getMovieDetail()
     }

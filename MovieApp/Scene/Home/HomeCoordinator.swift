@@ -17,15 +17,16 @@ class HomeCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    func showMovieDetail(movieId: Int) {
-        
-    }
-    
     func showFilter() {
         let controller = FilterController.instantiate(name: .main)
         controller.selectionCallback = { [weak self] category in
             self?.filterSelection?(category)
         }
         navigationController.presentPanModal(controller)
+    }
+    
+    func showMovieDetail(id: Int) {
+        let coordinator = MovieDetailCoordinator(movieId: id, navigationController: navigationController)
+        coordinator.start()
     }
 }

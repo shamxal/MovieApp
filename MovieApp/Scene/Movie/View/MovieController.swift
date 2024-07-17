@@ -41,7 +41,7 @@ class MovieController: UIViewController {
     }
     
     fileprivate func configureUI() {
-        
+        view.backgroundColor = .systemBackground
     }
     
     fileprivate func configureConstraints() {
