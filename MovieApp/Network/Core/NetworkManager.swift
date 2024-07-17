@@ -13,9 +13,13 @@ class NetworkManager {
     
     func request<T: Codable>(type: T.Type,
                              url: String,
-                             method: HTTPMethod,
+                             method: HTTPMethod = .get,
                              completion: @escaping((Result<T, ErrorTypes>)->())) {
-        AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "", method: method).responseData { response in
+//        print("url: \(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")")
+//        print("header: \(NetworkHelper.shared.getHeaders())")
+        AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "",
+                   method: method,
+                   headers: NetworkHelper.shared.getHeaders()).responseData { response in
             switch response.result {
             case .success(let data):
                 self.handleResponse(data: data) { response in
@@ -23,6 +27,22 @@ class NetworkManager {
                 }
             case .failure(_):
                 completion(.failure(.generalError))
+            }
+        }
+    }
+    
+    func request<T: Codable>(type: T.Type,
+                             url: String,
+                             method: HTTPMethod = .get,
+                             completion: @escaping((T?, String?) -> Void)) {
+        AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "",
+                   method: method,
+                   headers: NetworkHelper.shared.getHeaders()).responseDecodable(of: T.self) { response in
+            switch response.result {
+            case .success(let data):
+                completion(data, nil)
+            case .failure(let error):
+                completion(nil, error.localizedDescription)
             }
         }
     }

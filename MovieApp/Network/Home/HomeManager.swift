@@ -44,7 +44,7 @@ class HomeManager: HomeManagerProtocol {
             url = HomeEndpoint.upcoming.path
         }
         NetworkManager.shared.request(type: Movie.self,
-                                      url: url + "&page=\(page)",
+                                      url: url + "?page=\(page)",
                                       method: .get) { response in
             switch response {
             case .success(let data):

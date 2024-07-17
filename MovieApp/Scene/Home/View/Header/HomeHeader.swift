@@ -37,7 +37,7 @@ extension HomeHeader: UICollectionViewDataSource, UICollectionViewDelegate, UICo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width * 143 / 375
-        let height = collectionView.frame.height * 283 / 812
+//        let height = collectionView.frame.height * 283 / 812
         return CGSize(width: width, height: collectionView.frame.height)
     }
 }
