@@ -31,15 +31,12 @@
 		478DAE2229007A1100679F83 /* MoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DAE2129007A1100679F83 /* MoreModel.swift */; };
 		478DAE2529007C7400679F83 /* MoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DAE2329007C7400679F83 /* MoreCell.swift */; };
 		478DAE2629007C7400679F83 /* MoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 478DAE2429007C7400679F83 /* MoreCell.xib */; };
-		478DAE29290080A500679F83 /* SubscriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DAE28290080A500679F83 /* SubscriptionController.swift */; };
 		47937258290478D8002C5853 /* PeopleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E1D1DD29047750001D79A0 /* PeopleManager.swift */; };
 		47937259290478DB002C5853 /* PeopleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E1D1DE29047750001D79A0 /* PeopleHelper.swift */; };
 		47A58FA828FB38A100A717A4 /* SearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A58FA728FB38A100A717A4 /* SearchHelper.swift */; };
 		47A58FAA28FB38A700A717A4 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A58FA928FB38A700A717A4 /* SearchManager.swift */; };
 		47B527F52900853900E97B67 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B527F42900853900E97B67 /* Color.swift */; };
 		47B527F72900860F00E97B67 /* MoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B527F62900860F00E97B67 /* MoreCoordinator.swift */; };
-		47B527FA29008A8E00E97B67 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B527F829008A8E00E97B67 /* SubscriptionCell.swift */; };
-		47B527FB29008A8E00E97B67 /* SubscriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47B527F929008A8E00E97B67 /* SubscriptionCell.xib */; };
 		47C1869F290579A700DFB6A3 /* PeopleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C1869E290579A700DFB6A3 /* PeopleCoordinator.swift */; };
 		47C186A229057A9B00DFB6A3 /* MovieListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C186A129057A9B00DFB6A3 /* MovieListController.swift */; };
 		47C186A529057AC400DFB6A3 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C186A429057AC400DFB6A3 /* MovieListViewModel.swift */; };
@@ -114,13 +111,10 @@
 		478DAE2129007A1100679F83 /* MoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreModel.swift; sourceTree = "<group>"; };
 		478DAE2329007C7400679F83 /* MoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCell.swift; sourceTree = "<group>"; };
 		478DAE2429007C7400679F83 /* MoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreCell.xib; sourceTree = "<group>"; };
-		478DAE28290080A500679F83 /* SubscriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionController.swift; sourceTree = "<group>"; };
 		47A58FA728FB38A100A717A4 /* SearchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHelper.swift; sourceTree = "<group>"; };
 		47A58FA928FB38A700A717A4 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		47B527F42900853900E97B67 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		47B527F62900860F00E97B67 /* MoreCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCoordinator.swift; sourceTree = "<group>"; };
-		47B527F829008A8E00E97B67 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
-		47B527F929008A8E00E97B67 /* SubscriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscriptionCell.xib; sourceTree = "<group>"; };
 		47C1869E290579A700DFB6A3 /* PeopleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCoordinator.swift; sourceTree = "<group>"; };
 		47C186A129057A9B00DFB6A3 /* MovieListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListController.swift; sourceTree = "<group>"; };
 		47C186A429057AC400DFB6A3 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
@@ -214,13 +208,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		472064D128FB371000709BE1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		474339CA28FC1FE100731BCC /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,7 +228,6 @@
 		474F043F292805D500FDA984 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
-				474F04422928061500FDA984 /* Model */,
 				474F04412928060800FDA984 /* View */,
 				474F04402928060100FDA984 /* ViewModel */,
 			);
@@ -262,13 +248,6 @@
 				474F04432928062700FDA984 /* MovieController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		474F04422928061500FDA984 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		47675AE629047BA300C60628 /* Cell */ = {
@@ -338,7 +317,6 @@
 			children = (
 				478DAE272900808D00679F83 /* Cell */,
 				478DAE1A290079B900679F83 /* MoreController.swift */,
-				478DAE28290080A500679F83 /* SubscriptionController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -356,8 +334,6 @@
 			children = (
 				478DAE2329007C7400679F83 /* MoreCell.swift */,
 				478DAE2429007C7400679F83 /* MoreCell.xib */,
-				47B527F829008A8E00E97B67 /* SubscriptionCell.swift */,
-				47B527F929008A8E00E97B67 /* SubscriptionCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -459,7 +435,6 @@
 		47D342F928DE3F270000B72B /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				472064D128FB371000709BE1 /* Model */,
 				472064D028FB370A00709BE1 /* View */,
 				472064CF28FB370200709BE1 /* ViewModel */,
 			);
@@ -672,7 +647,6 @@
 				47D3431028DE40110000B72B /* Inter-Regular.ttf in Resources */,
 				47CB03F328FAD2F900193A54 /* LabelCollectionCell.xib in Resources */,
 				47675AEA29047BB000C60628 /* PeopleCell.xib in Resources */,
-				47B527FB29008A8E00E97B67 /* SubscriptionCell.xib in Resources */,
 				476B77A528DE3B3900E66099 /* Main.storyboard in Resources */,
 				47EDEFCC290589F2009B96C0 /* TableViewTitleCell.xib in Resources */,
 				470FAE8A28E982B100E064D9 /* HorizontalMovieCell.xib in Resources */,
@@ -737,8 +711,6 @@
 				47D3432328DE40D60000B72B /* Coordinator.swift in Sources */,
 				47D3431928DE403E0000B72B /* UIViewController+Extension.swift in Sources */,
 				47E1D1DB2904768B001D79A0 /* People.swift in Sources */,
-				478DAE29290080A500679F83 /* SubscriptionController.swift in Sources */,
-				47B527FA29008A8E00E97B67 /* SubscriptionCell.swift in Sources */,
 				470FAE8528E97EC200E064D9 /* PeopleController.swift in Sources */,
 				47D3432028DE40A90000B72B /* AlertViewHelper.swift in Sources */,
 				47C4B97128DF0496002E1E52 /* NetworkManager.swift in Sources */,
@@ -901,7 +873,6 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -931,7 +902,6 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

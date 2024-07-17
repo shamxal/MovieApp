@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import PanModal
 
 class MoreCoordinator: Coordinator {
     var navigationController: UINavigationController
@@ -17,9 +16,5 @@ class MoreCoordinator: Coordinator {
     }
     
     func showSubscription() {
-        let controller = SubscriptionController.instantiate(name: .main)
-//        navigationController.presentPanModal(controller)
-        controller.modalPresentationStyle = .overFullScreen
-        navigationController.present(controller, animated: true)
     }
 }
