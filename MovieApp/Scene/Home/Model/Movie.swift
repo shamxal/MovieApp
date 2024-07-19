@@ -46,7 +46,7 @@ struct MovieResult: Codable, MovieCellProtocol {
     
     var ratingText: String {
         if let voteAverage = voteAverage {
-            return "\(String(format: "%.1f", voteAverage)) / 10 IMDB"
+            return "\(String(format: "%.1f", voteAverage)) (IMDB)"
         }
         return ""
     }

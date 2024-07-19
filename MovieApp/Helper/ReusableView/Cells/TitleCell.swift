@@ -10,7 +10,7 @@ import UIKit
 class TitleCell: UICollectionViewCell, ReuseProtocol, NibProtocol {
     @IBOutlet private weak var titleLabel: UILabel!
     
-    func configure(title: String) {
+    func configure(title: String, alingment: NSTextAlignment = .center) {
         titleLabel.text = title
     }
 }

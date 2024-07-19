@@ -49,3 +49,15 @@ extension UIViewController {
         return false
     }
 }
+
+extension UIViewController {
+    public var navigationBarHeight: CGFloat {
+        var top = self.navigationController?.navigationBar.frame.height ?? 0.0
+        top += UIApplication.shared.windows.first?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        return top
+    }
+    
+    public var screenHeight: CGFloat {
+        view.window?.screen.bounds.height ?? 0
+    }
+}

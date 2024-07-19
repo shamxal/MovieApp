@@ -11,9 +11,9 @@ import Foundation
 struct MovieDetail: Codable {
     let adult: Bool?
     let backdropPath: String?
-    let belongsToCollection: BelongsToCollection?
+//    let belongsToCollection: BelongsToCollection?
     let budget: Int?
-    let genres: [Genre]?
+    let genres: [GenreElement]?
     let homepage: String?
     let id: Int?
     let imdbID: String?
@@ -21,20 +21,28 @@ struct MovieDetail: Codable {
     let originalLanguage, originalTitle, overview: String?
     let popularity: Double?
     let posterPath: String?
-    let productionCompanies: [ProductionCompany]?
-    let productionCountries: [ProductionCountry]?
+//    let productionCompanies: [ProductionCompany]?
+//    let productionCountries: [ProductionCountry]?
     let releaseDate: String?
     let revenue, runtime: Int?
-    let spokenLanguages: [String]?
+//    let spokenLanguages: [String]?
     let status, tagline, title: String?
     let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
+    
+    var posterImage: String {
+        NetworkHelper.shared.getImagePath(url: posterPath ?? "")
+    }
+    
+    var genreItems: [String] {
+        genres?.map({ $0.name ?? "" }) ?? []
+    }
 
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"
-        case belongsToCollection = "belongs_to_collection"
+//        case belongsToCollection = "belongs_to_collection"
         case budget, genres, homepage, id
         case imdbID = "imdb_id"
         case originCountry = "origin_country"
@@ -42,11 +50,11 @@ struct MovieDetail: Codable {
         case originalTitle = "original_title"
         case overview, popularity
         case posterPath = "poster_path"
-        case productionCompanies = "production_companies"
-        case productionCountries = "production_countries"
+//        case productionCompanies = "production_companies"
+//        case productionCountries = "production_countries"
         case releaseDate = "release_date"
         case revenue, runtime
-        case spokenLanguages = "spoken_languages"
+//        case spokenLanguages = "spoken_languages"
         case status, tagline, title, video
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
