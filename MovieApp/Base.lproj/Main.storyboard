@@ -299,7 +299,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Popular People" id="TPd-5t-Q6d"/>
                     <connections>
-                        <outlet property="collection" destination="nIh-gS-HWC" id="8N1-Mm-tmU"/>
+                        <outlet property="collection" destination="nIh-gS-HWC" id="tpx-sV-VRo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aQ-8n-NY0" sceneMemberID="firstResponder"/>

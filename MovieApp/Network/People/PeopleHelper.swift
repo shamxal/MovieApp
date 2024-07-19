@@ -7,10 +7,14 @@
 
 import Foundation
 
-enum PeopleEndpoint: String {
-    case popular = "person/popular"
+enum PeopleEndpoint {
+    case popular(page: Int)
     
     var path: String {
-        NetworkHelper.shared.requestUrl(url: self.rawValue)
+        switch self {
+        case .popular(let page):
+            NetworkHelper.shared.requestUrl(url: "person/popular?page=\(page)")
+        }
+        
     }
 }
