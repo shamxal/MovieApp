@@ -21,7 +21,7 @@ struct Movie: Codable {
 }
 
 // MARK: - MovieResult
-struct MovieResult: Codable, MovieCellProtocol {
+struct MovieResult: Codable, MovieCellProtocol, TopImageBottomLabelProtocol {
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]?
@@ -57,6 +57,14 @@ struct MovieResult: Codable, MovieCellProtocol {
     
     var overViewText: String {
         overview ?? ""
+    }
+    
+    var imageName: String {
+        NetworkHelper.shared.getImagePath(url: posterPath ?? "")
+    }
+    
+    var labelText: String {
+        title ?? ""
     }
 
     enum CodingKeys: String, CodingKey {

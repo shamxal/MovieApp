@@ -21,6 +21,7 @@ class MovieController: UIViewController {
         collection.registerCell(type: TitleCell.self)
         collection.registerCell(type: MoviInfoCell.self)
         collection.registerCell(type: MovieMediaCell.self)
+        collection.registerCell(type: VerticalMovieCell.self)
         return collection
     }()
     
@@ -70,15 +71,21 @@ class MovieController: UIViewController {
     
     fileprivate func configureCompositionalLayout() {
         let layout = UICollectionViewCompositionalLayout { [weak self] section, env in
-            switch self.viewModel.dtoData[section].type {
+            switch self?.viewModel.dtoData[section].type {
             case .media:
                 return MovieDetailLayout.mediaLayout(topHeight: self?.navigationBarHeight ?? 0)
             case .info:
                 return MovieDetailLayout.infoLayout()
             case .overview:
-                return MovieDetailLayout.overviewLayout()
+                let data = (self?.viewModel.dtoData[section].data as? String) ?? ""
+                let height = data.textHeight(data, width: self?.collection.frame.width ?? 0)
+                return MovieDetailLayout.overviewLayout(height: height)
+            case .title:
+                return MovieDetailLayout.titleLayout()
+            case .similarMovies:
+                return MovieDetailLayout.similarMoviesLayout()
             default:
-                return MovieDetailLayout.overviewLayout()
+                return MovieDetailLayout.overviewLayout(height: 0)
             }
         }
         collection.setCollectionViewLayout(layout, animated: true)
@@ -91,7 +98,10 @@ extension MovieController: UICollectionViewDataSource, UICollectionViewDelegate 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        if viewModel.dtoData[section].type == .similarMovies {
+            return viewModel.similarMovies.count
+        }
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -117,7 +127,31 @@ extension MovieController: UICollectionViewDataSource, UICollectionViewDelegate 
                 cell.configure(title: text, alingment: .left)
                 return cell
             }
+            
+        case .title:
+            if let title = data.data as? String {
+                let cell: TitleCell = collectionView.dequeueCell(for: indexPath)
+                cell.configure(title: title, 
+                               alingment: .left,
+                               font: .systemFont(ofSize: 20, weight: .semibold))
+                return cell
+            }
+            
+        case .similarMovies:
+            let cell: VerticalMovieCell = collectionView.dequeueCell(for: indexPath)
+            if let data = data.data as? [MovieResult] {
+                cell.configure(data: data[indexPath.item])
+            }
+            return cell
         }
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if viewModel.dtoData[indexPath.section].type == .similarMovies {
+            let id = viewModel.similarMovies[indexPath.item].id ?? 0
+            let coordinator = MovieDetailCoordinator(movieId: id, navigationController: navigationController ?? UINavigationController())
+            coordinator.start()
+        }
     }
 }

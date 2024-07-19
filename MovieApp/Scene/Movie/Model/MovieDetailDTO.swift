@@ -16,6 +16,8 @@ enum MovieDetailLayoutType {
     case media
     case info
     case overview
+    case title
+    case similarMovies
 }
 
 struct MovieInfoData {

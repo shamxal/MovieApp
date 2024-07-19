@@ -7,10 +7,16 @@
 
 import Foundation
 
-enum MovieEndpoint: String {
-    case detail = "movie/"
+enum MovieEndpoint {
+    case detail(id: Int)
+    case similarMovies(id: Int)
     
     var path: String {
-        NetworkHelper.shared.requestUrl(url: self.rawValue)
+        switch self {
+        case .detail(let id):
+            return NetworkHelper.shared.requestUrl(url: "movie/\(id)")
+        case .similarMovies(let id):
+            return NetworkHelper.shared.requestUrl(url: "movie/\(id)/similar")
+        }        
     }
 }

@@ -92,6 +92,9 @@
 		FEC0C1062C4805FA00B00274 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FEC0C1052C4805FA00B00274 /* Kingfisher */; };
 		FEC0C1092C48060600B00274 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FEC0C1082C48060600B00274 /* Alamofire */; };
 		FEC0C10C2C48061900B00274 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = FEC0C10B2C48061900B00274 /* SVProgressHUD */; };
+		FEE305CD2C4A74B5005F529E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE305CC2C4A74B5005F529E /* String+Extension.swift */; };
+		FEF538722C4AD61C00F449E3 /* TopImageBottomLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEF538702C4AD61C00F449E3 /* TopImageBottomLabelCell.xib */; };
+		FEF538732C4AD61C00F449E3 /* TopImageBottomLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF538712C4AD61C00F449E3 /* TopImageBottomLabelCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,6 +181,9 @@
 		FE7B6B042C492F750058DA3D /* MovieMediaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieMediaCell.xib; sourceTree = "<group>"; };
 		FE7B6B072C4936840058DA3D /* MovieDetailLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailLayout.swift; sourceTree = "<group>"; };
 		FE7B6B0A2C4939390058DA3D /* MovieDetailDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailDTO.swift; sourceTree = "<group>"; };
+		FEE305CC2C4A74B5005F529E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		FEF538702C4AD61C00F449E3 /* TopImageBottomLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopImageBottomLabelCell.xib; sourceTree = "<group>"; };
+		FEF538712C4AD61C00F449E3 /* TopImageBottomLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopImageBottomLabelCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +218,8 @@
 				FE7B6B042C492F750058DA3D /* MovieMediaCell.xib */,
 				FE22B6952C4A302000A9967A /* MoviInfoCell.swift */,
 				FE22B6962C4A302000A9967A /* MoviInfoCell.xib */,
+				FEF538712C4AD61C00F449E3 /* TopImageBottomLabelCell.swift */,
+				FEF538702C4AD61C00F449E3 /* TopImageBottomLabelCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -531,6 +539,7 @@
 				47D3431528DE403E0000B72B /* UITableView+Extension.swift */,
 				47D3431628DE403E0000B72B /* UIViewController+Extension.swift */,
 				47CB03F828FB013A00193A54 /* UIImageView+Extension.swift */,
+				FEE305CC2C4A74B5005F529E /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -675,6 +684,7 @@
 				47D3431128DE40110000B72B /* Inter-ExtraBold.ttf in Resources */,
 				476B77A728DE3B3A00E66099 /* Assets.xcassets in Resources */,
 				47D3431028DE40110000B72B /* Inter-Regular.ttf in Resources */,
+				FEF538722C4AD61C00F449E3 /* TopImageBottomLabelCell.xib in Resources */,
 				47CB03F328FAD2F900193A54 /* LabelCollectionCell.xib in Resources */,
 				FE7B6B052C492F750058DA3D /* MovieMediaCell.xib in Resources */,
 				47675AEA29047BB000C60628 /* PeopleCell.xib in Resources */,
@@ -698,6 +708,7 @@
 			files = (
 				478DAE2229007A1100679F83 /* MoreModel.swift in Sources */,
 				474339D228FC26E700731BCC /* VerticalMovieCell.swift in Sources */,
+				FEF538732C4AD61C00F449E3 /* TopImageBottomLabelCell.swift in Sources */,
 				47937259290478DB002C5853 /* PeopleHelper.swift in Sources */,
 				47937258290478D8002C5853 /* PeopleManager.swift in Sources */,
 				47C4B96F28DF0125002E1E52 /* NetworkHelper.swift in Sources */,
@@ -734,6 +745,7 @@
 				47D3430428DE3FCB0000B72B /* HomeViewModel.swift in Sources */,
 				470FAE8928E982B100E064D9 /* HorizontalMovieCell.swift in Sources */,
 				47D3432728DE41330000B72B /* Storyboarded.swift in Sources */,
+				FEE305CD2C4A74B5005F529E /* String+Extension.swift in Sources */,
 				470FAE8128E97DF900E064D9 /* TabBar.swift in Sources */,
 				47A58FAA28FB38A700A717A4 /* SearchManager.swift in Sources */,
 				FE22B6972C4A302000A9967A /* MoviInfoCell.swift in Sources */,
