@@ -22,4 +22,9 @@ class MovieDetailCoordinator: Coordinator {
         controller.hidesBottomBarWhenPushed = true
         navigationController.show(controller, sender: nil)
     }
+    
+    func showVideList(videos: [MovieVideoResult]) {
+        let controller = MovieVideoListController(videoList: videos)
+        navigationController.show(controller, sender: nil)
+    }
 }

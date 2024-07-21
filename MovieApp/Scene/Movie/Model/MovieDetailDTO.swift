@@ -20,6 +20,11 @@ enum MovieDetailLayoutType {
     case similarMovies
 }
 
+struct MovieMediaData {
+    let posterImage: String
+    let trailerId: String
+}
+
 struct MovieInfoData {
     let title: String
     let duration: String

@@ -14,6 +14,7 @@ class MovieViewModel {
     
     var dtoData = [MovieDetailDTO]()
     var similarMovies = [MovieResult]()
+    var videos = [MovieVideoResult]()
     
     var successCallback: (() -> Void)?
     var errorCallback: ((String) -> Void)?
@@ -33,6 +34,7 @@ class MovieViewModel {
                 self?.movieData = data
                 self?.configureDTO()
                 self?.getSimilarMovies()
+                self?.getMovieTrailer()
                 self?.successCallback?()
             }
         }
@@ -51,6 +53,16 @@ class MovieViewModel {
         }
     }
     
+    fileprivate func getMovieTrailer() {
+        MovieManager.getMovieTrailers(id: movieId) {  [weak self] data, error in
+            if let error {
+                self?.errorCallback?(error)
+            } else if let data, let videos = data.results {
+                self?.videos = videos
+            }
+        }
+    }
+    
     fileprivate func configureDTO() {
         if let data = movieData {
             dtoData.append(.init(data: data.posterImage, type: .media))
@@ -63,5 +75,9 @@ class MovieViewModel {
             dtoData.append(.init(data: data.overview ?? "", type: .overview))
             
         }
+    }
+    
+    func showVideList() {
+        coordinator.showVideList(videos: videos)
     }
 }

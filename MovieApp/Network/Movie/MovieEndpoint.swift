@@ -10,6 +10,7 @@ import Foundation
 enum MovieEndpoint {
     case detail(id: Int)
     case similarMovies(id: Int)
+    case movieTrailer(id: Int)
     
     var path: String {
         switch self {
@@ -17,6 +18,8 @@ enum MovieEndpoint {
             return NetworkHelper.shared.requestUrl(url: "movie/\(id)")
         case .similarMovies(let id):
             return NetworkHelper.shared.requestUrl(url: "movie/\(id)/similar")
-        }        
+        case .movieTrailer(let id):
+            return NetworkHelper.shared.requestUrl(url: "movie/\(id)/videos")
+        }
     }
 }

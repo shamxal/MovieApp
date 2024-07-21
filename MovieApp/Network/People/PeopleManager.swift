@@ -23,7 +23,7 @@ class PeopleManager: PeopleManagerProtocol {
     
     func getPopularPeopleMovieList(id: Int, complete: @escaping ((PeopleMovieList?, Error?) -> ())) {
         NetworkManager.shared.request(type: PeopleMovieList.self,
-                                      url:  NetworkHelper.shared.requestUrl(url: "person/\(id)/movie_credits"),
+                                      url: PeopleEndpoint.movieList(id: id).path,
                                       method: .get) { response in
             switch response {
             case .success(let data):

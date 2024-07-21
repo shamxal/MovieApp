@@ -53,7 +53,7 @@
                 <outlet property="mediaImage" destination="73h-Kc-TsU" id="QTq-qd-aen"/>
                 <outlet property="playButton" destination="6dv-41-Y8h" id="Tkh-Iw-vUa"/>
             </connections>
-            <point key="canvasLocation" x="257" y="-43"/>
+            <point key="canvasLocation" x="255.72519083969465" y="-43.309859154929576"/>
         </collectionViewCell>
     </objects>
     <resources>

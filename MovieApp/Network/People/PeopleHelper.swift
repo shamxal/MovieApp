@@ -9,11 +9,14 @@ import Foundation
 
 enum PeopleEndpoint {
     case popular(page: Int)
+    case movieList(id: Int)
     
     var path: String {
         switch self {
         case .popular(let page):
-            NetworkHelper.shared.requestUrl(url: "person/popular?page=\(page)")
+            return NetworkHelper.shared.requestUrl(url: "person/popular?page=\(page)")
+        case .movieList(let id):
+            return NetworkHelper.shared.requestUrl(url: "person/\(id)/movie_credits")
         }
         
     }

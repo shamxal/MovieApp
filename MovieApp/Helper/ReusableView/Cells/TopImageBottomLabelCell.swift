@@ -12,7 +12,7 @@ protocol TopImageBottomLabelProtocol {
     var labelText: String { get }
 }
 
-class TopImageBottomLabelCell: UICollectionViewCell {
+class TopImageBottomLabelCell: UICollectionViewCell, NibProtocol, ReuseProtocol {
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var movieNameLabel: UILabel!
     

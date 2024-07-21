@@ -273,7 +273,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nIh-gS-HWC">
-                                <rect key="frame" x="25" y="123.5" width="364" height="658"/>
+                                <rect key="frame" x="16.5" y="123.5" width="381" height="658"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZhN-eh-Bj1">
                                     <size key="itemSize" width="128" height="128"/>
@@ -292,7 +292,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nIh-gS-HWC" firstAttribute="centerX" secondItem="k2W-oi-3Ey" secondAttribute="centerX" id="VRn-D2-GxF"/>
-                            <constraint firstItem="nIh-gS-HWC" firstAttribute="width" secondItem="YAX-Lb-PI8" secondAttribute="width" multiplier="0.88" id="YbQ-ga-vTI"/>
+                            <constraint firstItem="nIh-gS-HWC" firstAttribute="width" secondItem="YAX-Lb-PI8" secondAttribute="width" multiplier="0.92" id="YbQ-ga-vTI"/>
                             <constraint firstItem="nIh-gS-HWC" firstAttribute="height" secondItem="YAX-Lb-PI8" secondAttribute="height" multiplier="0.809152" id="hQZ-si-t62"/>
                             <constraint firstItem="nIh-gS-HWC" firstAttribute="centerY" secondItem="k2W-oi-3Ey" secondAttribute="centerY" id="iuA-oo-GZd"/>
                         </constraints>

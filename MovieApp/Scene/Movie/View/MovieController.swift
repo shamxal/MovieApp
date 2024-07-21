@@ -8,7 +8,6 @@
 import UIKit
 
 class MovieController: UIViewController {
-
     private lazy var collection: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: .init())
         collection.bounces = false
@@ -21,7 +20,7 @@ class MovieController: UIViewController {
         collection.registerCell(type: TitleCell.self)
         collection.registerCell(type: MoviInfoCell.self)
         collection.registerCell(type: MovieMediaCell.self)
-        collection.registerCell(type: VerticalMovieCell.self)
+        collection.registerCell(type: TopImageBottomLabelCell.self)
         return collection
     }()
     
@@ -111,6 +110,9 @@ extension MovieController: UICollectionViewDataSource, UICollectionViewDelegate 
             if let posterImage = data.data as? String {
                 let cell: MovieMediaCell = collectionView.dequeueCell(for: indexPath)
                 cell.configure(mediaData: posterImage)
+                cell.playActionCallback = { [weak self] in
+                    self?.viewModel.showVideList()
+                }
                 return cell
             }
             
@@ -138,7 +140,7 @@ extension MovieController: UICollectionViewDataSource, UICollectionViewDelegate 
             }
             
         case .similarMovies:
-            let cell: VerticalMovieCell = collectionView.dequeueCell(for: indexPath)
+            let cell: TopImageBottomLabelCell = collectionView.dequeueCell(for: indexPath)
             if let data = data.data as? [MovieResult] {
                 cell.configure(data: data[indexPath.item])
             }

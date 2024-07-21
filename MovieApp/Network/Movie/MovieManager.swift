@@ -10,6 +10,7 @@ import Foundation
 protocol MovieManagerProtocol {
     static func getMovieDetail(id: Int, complete: @escaping((MovieDetail?, String?)->()))
     static func getSimilarMovies(id: Int, complete: @escaping((Movie?, String?)->()))
+    static func getMovieTrailers(id: Int, complete: @escaping((MovieVideo?, String?)->()))
 }
 
 class MovieManager: MovieManagerProtocol {
@@ -22,6 +23,12 @@ class MovieManager: MovieManagerProtocol {
     static func getSimilarMovies(id: Int, complete: @escaping ((Movie?, String?) -> ())) {
         NetworkManager.shared.request(type: Movie.self,
                                       url: MovieEndpoint.similarMovies(id: id).path,
+                                      completion: complete)
+    }
+    
+    static func getMovieTrailers(id: Int, complete: @escaping ((MovieVideo?, String?) -> ())) {
+        NetworkManager.shared.request(type: MovieVideo.self,
+                                      url: MovieEndpoint.movieTrailer(id: id).path,
                                       completion: complete)
     }
 }
