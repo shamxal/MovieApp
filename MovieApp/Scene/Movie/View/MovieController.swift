@@ -92,11 +92,7 @@ class MovieController: UIViewController {
     }
     
     @objc fileprivate func addToWatchList() {
-        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
-            //add to watchlist
-        } else {
-            
-        }
+        viewModel.addMovieToFavorite()
     }
 }
 
