@@ -46,6 +46,7 @@ class MovieController: UIViewController {
     
     fileprivate func configureUI() {
         view.backgroundColor = .systemBackground
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .plain, target: self, action: #selector(addToWatchList))
     }
     
     fileprivate func configureConstraints() {
@@ -88,6 +89,14 @@ class MovieController: UIViewController {
             }
         }
         collection.setCollectionViewLayout(layout, animated: true)
+    }
+    
+    @objc fileprivate func addToWatchList() {
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
+            //add to watchlist
+        } else {
+            
+        }
     }
 }
 
@@ -150,7 +159,9 @@ extension MovieController: UICollectionViewDataSource, UICollectionViewDelegate 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if viewModel.dtoData[indexPath.section].type == .similarMovies {
+        if viewModel.dtoData[indexPath.section].type == .media {
+            viewModel.showVideList()
+        } else if viewModel.dtoData[indexPath.section].type == .similarMovies {
             let id = viewModel.similarMovies[indexPath.item].id ?? 0
             let coordinator = MovieDetailCoordinator(movieId: id, navigationController: navigationController ?? UINavigationController())
             coordinator.start()

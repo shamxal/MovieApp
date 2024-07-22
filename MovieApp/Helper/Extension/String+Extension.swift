@@ -25,6 +25,6 @@ extension String {
         let attributes = [NSAttributedString.Key.font: font]
         let options: NSStringDrawingOptions = [.usesFontLeading, .usesLineFragmentOrigin]
         let bounds = (text as NSString).boundingRect(with: constrainedSize, options: options, attributes: attributes, context: nil)
-        return ceil(bounds.height) + insets.top + insets.bottom
+        return ceil(bounds.height * 1.5) + insets.top + insets.bottom
     }
 }

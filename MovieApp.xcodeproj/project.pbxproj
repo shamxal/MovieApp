@@ -78,6 +78,9 @@
 		47EDEFCC290589F2009B96C0 /* TableViewTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47EDEFCA290589F2009B96C0 /* TableViewTitleCell.xib */; };
 		47F71E9E2903242B00AE3A7C /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F71E9C2903242B00AE3A7C /* TitleCell.swift */; };
 		47F71E9F2903242B00AE3A7C /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F71E9D2903242B00AE3A7C /* TitleCell.xib */; };
+		FE16A1DF2C4E7EA800A7D701 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FE16A1DE2C4E7EA800A7D701 /* FirebaseAnalytics */; };
+		FE16A1E12C4E7EA800A7D701 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FE16A1E02C4E7EA800A7D701 /* FirebaseAnalyticsSwift */; };
+		FE16A1E32C4E7EE900A7D701 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE16A1E22C4E7EE900A7D701 /* GoogleService-Info.plist */; };
 		FE16CD3C2C486263009F0A11 /* MovieDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16CD3B2C486263009F0A11 /* MovieDetailCoordinator.swift */; };
 		FE22B6972C4A302000A9967A /* MoviInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE22B6952C4A302000A9967A /* MoviInfoCell.swift */; };
 		FE22B6982C4A302000A9967A /* MoviInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE22B6962C4A302000A9967A /* MoviInfoCell.xib */; };
@@ -176,6 +179,7 @@
 		47EDEFCA290589F2009B96C0 /* TableViewTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewTitleCell.xib; sourceTree = "<group>"; };
 		47F71E9C2903242B00AE3A7C /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		47F71E9D2903242B00AE3A7C /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
+		FE16A1E22C4E7EE900A7D701 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FE16CD3B2C486263009F0A11 /* MovieDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailCoordinator.swift; sourceTree = "<group>"; };
 		FE22B6952C4A302000A9967A /* MoviInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviInfoCell.swift; sourceTree = "<group>"; };
 		FE22B6962C4A302000A9967A /* MoviInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviInfoCell.xib; sourceTree = "<group>"; };
@@ -202,7 +206,9 @@
 			files = (
 				FE7EAE572C48073F00773E99 /* PanModal in Frameworks */,
 				FEC0C10C2C48061900B00274 /* SVProgressHUD in Frameworks */,
+				FE16A1DF2C4E7EA800A7D701 /* FirebaseAnalytics in Frameworks */,
 				FEC0C1092C48060600B00274 /* Alamofire in Frameworks */,
+				FE16A1E12C4E7EA800A7D701 /* FirebaseAnalyticsSwift in Frameworks */,
 				FEC0C1062C4805FA00B00274 /* Kingfisher in Frameworks */,
 				FEF538762C4ADDE100F449E3 /* YouTubeiOSPlayerHelper in Frameworks */,
 			);
@@ -317,6 +323,7 @@
 				47E8BDC728F326E800254120 /* Colors.xcassets */,
 				476B77A828DE3B3A00E66099 /* LaunchScreen.storyboard */,
 				476B77AB28DE3B3A00E66099 /* Info.plist */,
+				FE16A1E22C4E7EE900A7D701 /* GoogleService-Info.plist */,
 			);
 			path = MovieApp;
 			sourceTree = "<group>";
@@ -649,6 +656,8 @@
 				FEC0C10B2C48061900B00274 /* SVProgressHUD */,
 				FE7EAE562C48073F00773E99 /* PanModal */,
 				FEF538752C4ADDE100F449E3 /* YouTubeiOSPlayerHelper */,
+				FE16A1DE2C4E7EA800A7D701 /* FirebaseAnalytics */,
+				FE16A1E02C4E7EA800A7D701 /* FirebaseAnalyticsSwift */,
 			);
 			productName = MovieApp;
 			productReference = 476B779A28DE3B3900E66099 /* MovieApp.app */;
@@ -684,6 +693,7 @@
 				FEC0C10A2C48061900B00274 /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
 				FE7EAE552C48073F00773E99 /* XCRemoteSwiftPackageReference "PanModal" */,
 				FEF538742C4ADDE100F449E3 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
+				FE16A1DD2C4E7EA800A7D701 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 476B779B28DE3B3900E66099 /* Products */;
 			projectDirPath = "";
@@ -718,6 +728,7 @@
 				47EDEFCC290589F2009B96C0 /* TableViewTitleCell.xib in Resources */,
 				470FAE8A28E982B100E064D9 /* HorizontalMovieCell.xib in Resources */,
 				47D3431228DE40110000B72B /* Inter-Black.ttf in Resources */,
+				FE16A1E32C4E7EE900A7D701 /* GoogleService-Info.plist in Resources */,
 				474339D328FC26E700731BCC /* VerticalMovieCell.xib in Resources */,
 				47F71E9F2903242B00AE3A7C /* TitleCell.xib in Resources */,
 				474339CE28FC1FF400731BCC /* HomeHeader.xib in Resources */,
@@ -1020,6 +1031,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FE16A1DD2C4E7EA800A7D701 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.29.0;
+			};
+		};
 		FE7EAE552C48073F00773E99 /* XCRemoteSwiftPackageReference "PanModal" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/slackhq/PanModal.git";
@@ -1063,6 +1082,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FE16A1DE2C4E7EA800A7D701 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE16A1DD2C4E7EA800A7D701 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		FE16A1E02C4E7EA800A7D701 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE16A1DD2C4E7EA800A7D701 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
 		FE7EAE562C48073F00773E99 /* PanModal */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FE7EAE552C48073F00773E99 /* XCRemoteSwiftPackageReference "PanModal" */;
