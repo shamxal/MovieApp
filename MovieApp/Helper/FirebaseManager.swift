@@ -29,11 +29,15 @@ class FirebaseManager {
         db.collection(favoriteCollection).getDocuments { snapshot, error in
             if let error {
                 complete(nil, error.localizedDescription)
-            } else if let data = snapshot?.documents {
-                if let data = try? JSONSerialization.data(withJSONObject: data, options: []) {
-                    guard let movies = try? JSONDecoder().decode([Favorite].self, from: data) else { return }
-                    complete(movies, nil)
+            } else if let documents = snapshot?.documents {
+                var movies = [Favorite]()
+                for document in documents {
+                    if let data = try? JSONSerialization.data(withJSONObject: document.data(), options: []) {
+                        guard let movie = try? JSONDecoder().decode(Favorite.self, from: data) else { return }
+                        movies.append(movie)
+                    }
                 }
+                complete(movies, nil)
             }
         }
     }

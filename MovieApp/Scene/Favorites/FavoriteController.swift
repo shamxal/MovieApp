@@ -15,7 +15,7 @@ class FavoriteController: UIViewController {
         layout.scrollDirection = .vertical
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.bounces = false
+        collection.bounces = true
         collection.delegate = self
         collection.dataSource = self
         collection.backgroundColor = .clear
@@ -27,6 +27,7 @@ class FavoriteController: UIViewController {
     }()
     
     private let viewModel = FavoriteViewModel()
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,10 @@ class FavoriteController: UIViewController {
     }
     
     fileprivate func configureUI() {
+        navigationItem.title = "Favorite Movies"
         view.backgroundColor = .systemBackground
+        collection.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
     fileprivate func configureConstraint() {
@@ -53,12 +57,18 @@ class FavoriteController: UIViewController {
     fileprivate func configureViewModel() {
         viewModel.getFavoriteItems()
         viewModel.errorCallback = { [weak self] message in
+            self?.refreshControl.endRefreshing()
             self?.present(AlertViewHelper.showAlert(message: message), animated: true)
         }
         
         viewModel.successCallback = { [weak self] in
             self?.collection.reloadData()
+            self?.refreshControl.endRefreshing()
         }
+    }
+    
+    @objc fileprivate func refresh() {
+        viewModel.getFavoriteItems()
     }
 }
 
@@ -80,6 +90,6 @@ extension FavoriteController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        .init(width: collectionView.frame.width * 0.92, height: 250)
+        .init(width: collectionView.frame.width * 0.92, height: 120)
     }
 }
