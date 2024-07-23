@@ -16,8 +16,6 @@ class MovieViewModel {
     var similarMovies = [MovieResult]()
     var videos = [MovieVideoResult]()
     
-    var firebaseManager = FirebaseManager()
-    
     var successCallback: (() -> Void)?
     var errorCallback: ((String) -> Void)?
     
@@ -85,6 +83,6 @@ class MovieViewModel {
     
     func addMovieToFavorite() {
         guard let movieData else { return }
-        firebaseManager.addFavoriteMovie(movie: movieData)
+        FirebaseManager.addFavoriteMovie(movie: movieData)
     }
 }

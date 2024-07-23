@@ -135,7 +135,7 @@
                         <segue destination="ZnU-1y-rk0" kind="relationship" relationship="viewControllers" id="9Wq-Hd-9Ug"/>
                         <segue destination="65m-nX-Lad" kind="relationship" relationship="viewControllers" id="GHC-Xo-9wU"/>
                         <segue destination="5UC-Ev-63S" kind="relationship" relationship="viewControllers" id="fo5-Jp-Zc4"/>
-                        <segue destination="ipe-ZD-2Rc" kind="relationship" relationship="viewControllers" id="fC1-jD-RUL"/>
+                        <segue destination="9YD-Ac-kj4" kind="relationship" relationship="viewControllers" id="KFB-Kz-FmN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhg-4r-H4f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -311,11 +311,11 @@
             <objects>
                 <viewController storyboardIdentifier="MoreController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0dG-9B-ERg" customClass="MoreController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XX8-hn-Qzm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CxW-Dl-ggj">
-                                <rect key="frame" x="24" y="92" width="366" height="721"/>
+                                <rect key="frame" x="24" y="92" width="366" height="770"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="odn-EX-am9">
                                     <size key="itemSize" width="128" height="128"/>
@@ -347,6 +347,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xC-yk-Mve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="718.84057971014499" y="1130.3571428571429"/>
+        </scene>
+        <!--Favorite Controller-->
+        <scene sceneID="3g1-JM-9lB">
+            <objects>
+                <viewController id="pIb-E0-W7r" customClass="FavoriteController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cLD-aa-j6t">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Vdr-dL-GmT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="U5y-NC-Y7Y"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UG7-Vo-tcS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="719" y="1874"/>
         </scene>
         <!--Movie List Controller-->
         <scene sceneID="SLg-zS-cA9">
@@ -387,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uzo-qC-7cI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="718.84057971014499" y="1840.8482142857142"/>
+            <point key="canvasLocation" x="-949" y="1132"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="laC-Zh-boh">
@@ -427,9 +443,29 @@
             </objects>
             <point key="canvasLocation" x="-30.434782608695656" y="1132.3660714285713"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="h0i-Og-2Ga">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9YD-Ac-kj4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="star" id="pnZ-pR-fbL"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="egl-sW-MRn">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pIb-E0-W7r" kind="relationship" relationship="rootViewController" id="876-Oq-QNR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9og-2m-e4W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-30.434782608695656" y="1873.6607142857142"/>
+        </scene>
     </scenes>
     <resources>
         <image name="filter" width="24" height="24"/>
+        <image name="star" width="24" height="24"/>
         <image name="tabbarItemFour" width="24" height="24"/>
         <image name="tabbarItemOne" width="24" height="24"/>
         <image name="tabbarItemThree" width="24" height="24"/>
