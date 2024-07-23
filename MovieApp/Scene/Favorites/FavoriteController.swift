@@ -13,6 +13,7 @@ class FavoriteController: UIViewController {
         layout.minimumLineSpacing = 16
         layout.minimumInteritemSpacing = 16
         layout.scrollDirection = .vertical
+        layout.sectionInset = .zero
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.bounces = true

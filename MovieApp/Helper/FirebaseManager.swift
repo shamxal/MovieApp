@@ -16,6 +16,7 @@ class FirebaseManager {
     static func addFavoriteMovie(movie: MovieDetail) {
         let data: [String : Any] = [
             "userId": UUID().uuidString,
+            "movieId": movie.id ?? 0,
             "title": movie.originalTitle ?? "",
             "poster": movie.posterImage,
             "rating": movie.voteAverage ?? 0.0,
@@ -23,6 +24,10 @@ class FirebaseManager {
             "description": movie.overview ?? ""
         ]
         db.collection(favoriteCollection).document().setData(data)
+    }
+    
+    static func removeFromFavorite(movieId: Int) {
+        db.collection(favoriteCollection).whereField("movieId", isEqualTo: movieId)
     }
     
     static func getFavoriteMovies(complete: @escaping(([Favorite]?, String?) -> Void)) {
@@ -38,6 +43,23 @@ class FirebaseManager {
                     }
                 }
                 complete(movies, nil)
+            }
+        }
+    }
+    
+    static func isMovieInFavoriteList(movieId: Int, complete: @escaping((Favorite?, String?) -> Void)) {
+        db.collection(favoriteCollection).whereField("movieId", isEqualTo: movieId).getDocuments { snapshot, error in
+            if let error {
+                complete(nil, error.localizedDescription)
+            } else if let documents = snapshot?.documents {
+                var movies = [Favorite]()
+                for document in documents {
+                    if let data = try? JSONSerialization.data(withJSONObject: document.data(), options: []) {
+                        guard let movie = try? JSONDecoder().decode(Favorite.self, from: data) else { return }
+                        movies.append(movie)
+                    }
+                }
+                complete(movies.first, nil)
             }
         }
     }

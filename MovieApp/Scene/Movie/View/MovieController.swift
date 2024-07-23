@@ -46,7 +46,6 @@ class MovieController: UIViewController {
     
     fileprivate func configureUI() {
         view.backgroundColor = .systemBackground
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .plain, target: self, action: #selector(addToWatchList))
     }
     
     fileprivate func configureConstraints() {
@@ -66,6 +65,12 @@ class MovieController: UIViewController {
         
         viewModel.successCallback = { [weak self] in
             self?.collection.reloadData()
+        }
+        
+        viewModel.favoriteCallback = { [weak self] in
+            guard let self else { return }
+            let image = UIImage(systemName: viewModel.isFavoriteMovie ? "bookmark.fill" : "bookmark")
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(addToWatchList))
         }
     }
     

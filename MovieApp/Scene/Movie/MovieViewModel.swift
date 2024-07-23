@@ -16,13 +16,21 @@ class MovieViewModel {
     var similarMovies = [MovieResult]()
     var videos = [MovieVideoResult]()
     
+    var isFavoriteMovie = false
     var successCallback: (() -> Void)?
+    var favoriteCallback: (() -> Void)?
     var errorCallback: ((String) -> Void)?
     
     init(movieId: Int, coordinator: MovieDetailCoordinator) {
         self.movieId = movieId
         self.coordinator = coordinator
         
+        FirebaseManager.isMovieInFavoriteList(movieId: movieId) { [weak self] data, _ in
+            if let _ = data {
+                self?.isFavoriteMovie = true
+            }
+            self?.favoriteCallback?()
+        }
         getMovieDetail()
     }
     
@@ -83,6 +91,7 @@ class MovieViewModel {
     
     func addMovieToFavorite() {
         guard let movieData else { return }
+        
         FirebaseManager.addFavoriteMovie(movie: movieData)
     }
 }
