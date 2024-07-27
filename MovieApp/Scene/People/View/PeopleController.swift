@@ -25,7 +25,7 @@ class PeopleController: UIViewController {
     
     fileprivate func configureViewModel() {
         viewModel.getPopularPeople()
-        viewModel.errorCallback = { [weak self] errorMessage in
+        viewModel.errorCallback = { errorMessage in
             print(errorMessage)
         }
         viewModel.successCallback = { [weak self] in

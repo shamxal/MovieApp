@@ -27,4 +27,9 @@ class MovieDetailCoordinator: Coordinator {
         let controller = MovieVideoListController(videoList: videos)
         navigationController.show(controller, sender: nil)
     }
+    
+    func showLogin() {
+        let controller = LoginController.instantiate(name: .main)
+        navigationController.show(controller, sender: nil)
+    }
 }

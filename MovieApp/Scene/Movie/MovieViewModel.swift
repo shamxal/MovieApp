@@ -90,8 +90,12 @@ class MovieViewModel {
     }
     
     func addMovieToFavorite() {
-        guard let movieData else { return }
-        
-        FirebaseManager.addFavoriteMovie(movie: movieData)
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
+            guard let movieData else { return }
+            
+            FirebaseManager.addFavoriteMovie(movie: movieData)
+        } else {
+            coordinator.showLogin()
+        }
     }
 }
