@@ -6,16 +6,19 @@
 //
 
 import Foundation
+import FirebaseAuth
 import FirebaseFirestore
     
 class FirebaseManager {
     static let db = Firestore.firestore()
     
     static let favoriteCollection = "FavoriteMovies"
+    static let userId = UserDefaults.standard.string(forKey: "userId") ?? ""
     
-    static func addFavoriteMovie(movie: MovieDetail) {
+    static func addFavoriteMovie(movie: MovieDetail, completion: @escaping(() -> Void)) {
+        guard let movieId = movie.id else { return }
         let data: [String : Any] = [
-            "userId": UUID().uuidString,
+            "userId": userId,
             "movieId": movie.id ?? 0,
             "title": movie.originalTitle ?? "",
             "poster": movie.posterImage,
@@ -23,11 +26,15 @@ class FirebaseManager {
             "genres": movie.genreItems,
             "description": movie.overview ?? ""
         ]
-        db.collection(favoriteCollection).document().setData(data)
+        db.collection(favoriteCollection).document("\(userId)-\(movieId)").setData(data) { error in
+            if error == nil {
+                completion()
+            }
+        }
     }
     
-    static func removeFromFavorite(movieId: Int) {
-        db.collection(favoriteCollection).whereField("movieId", isEqualTo: movieId)
+    static func remoeFvromFavorite(movieId: Int) {
+        db.collection(favoriteCollection).document("\(userId)-\(movieId)").delete()
     }
     
     static func getFavoriteMovies(complete: @escaping(([Favorite]?, String?) -> Void)) {
@@ -61,6 +68,17 @@ class FirebaseManager {
                 }
                 complete(movies.first, nil)
             }
+        }
+    }
+    
+    static func signInAnonymously(complete: @escaping(() -> Void)) {
+        Auth.auth().signInAnonymously { authResult, error in
+            guard let user = authResult?.user else { return }
+            let isAnonymous = user.isAnonymous  // true
+            let uid = user.uid
+            UserDefaults.standard.set(uid, forKey: "userId")
+            UserDefaults.standard.set(true, forKey: "isLoggedIn")
+            complete()
         }
     }
 }

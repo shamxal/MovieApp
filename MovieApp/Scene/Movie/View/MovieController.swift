@@ -59,8 +59,8 @@ class MovieController: UIViewController {
     }
     
     fileprivate func configureViewModel() {
-        viewModel.errorCallback = { [weak self] message in
-            self?.present(AlertViewHelper.showAlert(message: message), animated: true)
+        viewModel.errorCallback = { [weak self] errorMessage in
+            self?.showAlert(message: errorMessage)
         }
         
         viewModel.successCallback = { [weak self] in
@@ -69,6 +69,7 @@ class MovieController: UIViewController {
         
         viewModel.favoriteCallback = { [weak self] in
             guard let self else { return }
+            navigationItem.rightBarButtonItem = nil
             let image = UIImage(systemName: viewModel.isFavoriteMovie ? "bookmark.fill" : "bookmark")
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(addToWatchList))
         }
@@ -97,7 +98,11 @@ class MovieController: UIViewController {
     }
     
     @objc fileprivate func addToWatchList() {
-        viewModel.addMovieToFavorite()
+        if viewModel.isFavoriteMovie {
+            viewModel.removeFromFavorite()
+        } else {
+            viewModel.addMovieToFavorite()
+        }
     }
 }
 

@@ -49,6 +49,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="MovieApp" id="WS2-cK-6w1">
+                        <barButtonItem key="leftBarButtonItem" image="crown.fill" catalog="system" style="plain" id="f2Q-Fm-m0x">
+                            <color key="tintColor" red="1" green="0.792156862745098" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="premiumButtonTapped:" destination="BYZ-38-t0r" id="NJ9-Ty-X9E"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="filter" id="tZ4-I9-uKq">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
@@ -58,6 +64,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collection" destination="FmN-zI-ahK" id="YBj-Rb-qcH"/>
+                        <outlet property="premiumButton" destination="f2Q-Fm-m0x" id="zC2-jl-ojt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -783,6 +790,7 @@ Register</string>
         </scene>
     </scenes>
     <resources>
+        <image name="crown.fill" catalog="system" width="128" height="92"/>
         <image name="filter" width="24" height="24"/>
         <image name="star" width="24" height="24"/>
         <image name="tabbarItemOne" width="24" height="24"/>

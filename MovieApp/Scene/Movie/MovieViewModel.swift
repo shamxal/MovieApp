@@ -91,11 +91,23 @@ class MovieViewModel {
     
     func addMovieToFavorite() {
         if UserDefaults.standard.bool(forKey: "isLoggedIn") {
-            guard let movieData else { return }
-            
-            FirebaseManager.addFavoriteMovie(movie: movieData)
+            addToFavorite()
         } else {
-            coordinator.showLogin()
+            FirebaseManager.signInAnonymously { [weak self] in
+                self?.addMovieToFavorite()
+            }
         }
+    }
+    
+    fileprivate func addToFavorite() {
+        guard let movieData else { return }
+        FirebaseManager.addFavoriteMovie(movie: movieData) { [weak self] in
+            self?.isFavoriteMovie = true
+            self?.favoriteCallback?()
+        }
+    }
+    
+    func removeFromFavorite() {
+        FirebaseManager.remoeFvromFavorite(movieId: movieId)
     }
 }

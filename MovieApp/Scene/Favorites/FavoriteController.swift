@@ -57,9 +57,9 @@ class FavoriteController: UIViewController {
     
     fileprivate func configureViewModel() {
         viewModel.getFavoriteItems()
-        viewModel.errorCallback = { [weak self] message in
+        viewModel.errorCallback = { [weak self] errorMessage in
             self?.refreshControl.endRefreshing()
-            self?.present(AlertViewHelper.showAlert(message: message), animated: true)
+            self?.showAlert(message: errorMessage)
         }
         
         viewModel.successCallback = { [weak self] in

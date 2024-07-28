@@ -61,3 +61,12 @@ extension UIViewController {
         view.window?.screen.bounds.height ?? 0
     }
 }
+
+extension UIViewController {
+    func showAlert(title: String = "Error", message: String) {
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        controller.addAction(action)
+        present(controller, animated: true)
+    }
+}

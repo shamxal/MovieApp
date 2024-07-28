@@ -27,8 +27,8 @@ class SearchController: UIViewController {
     }
     
     fileprivate func configureViewModel() {
-        viewModel.errorCallback = { errorMessage in
-            print(errorMessage)
+        viewModel.errorCallback = { [weak self] errorMessage in
+            self?.showAlert(message: errorMessage)
         }
         viewModel.successCallback = { [weak self] in
             self?.collection.reloadData()

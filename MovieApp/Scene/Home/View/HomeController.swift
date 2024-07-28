@@ -9,27 +9,28 @@ import UIKit
 
 class HomeController: UIViewController {
     @IBOutlet private weak var collection: UICollectionView!
+    @IBOutlet private weak var premiumButton: UIBarButtonItem!
     
     let viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionSetup()
-        viewModelConfiguration()
+        configureUI()
+        configureViewModel()
     }
     
-    fileprivate func collectionSetup() {
+    fileprivate func configureUI() {
         collection.registerCell(type: HorizontalMovieCell.self)
         collection.registerSupplementaryView(type: HomeHeader.self, ofKind: UICollectionView.elementKindSectionHeader)
     }
     
-    fileprivate func viewModelConfiguration() {
+    fileprivate func configureViewModel() {
         viewModel.coordinator = HomeCoordinator(navigationController: navigationController ?? UINavigationController())
         viewModel.getGenreItems()
         viewModel.getNowPlaying()
-        viewModel.errorCallback = { errorMessage in
-            print("error: \(errorMessage)")
+        viewModel.errorCallback = { [weak self] errorMessage in
+            self?.showAlert(message: errorMessage)
         }
         viewModel.successCallback = { [weak self] in
             self?.collection.reloadData()
@@ -43,6 +44,11 @@ class HomeController: UIViewController {
     
     @IBAction func filterButtonTapped(_ sender: Any) {
         viewModel.coordinator?.showFilter()
+    }
+    
+    
+    @IBAction func premiumButtonTapped(_ sender: Any) {
+        //show revenue cat screen
     }
 }
 

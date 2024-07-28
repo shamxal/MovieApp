@@ -25,8 +25,8 @@ class MovieListController: UIViewController, Storyboarded {
     }
     
     fileprivate func configureViewModel() {
-        viewModel?.errorCallback = { message in
-            print("error: \(message)")
+        viewModel?.errorCallback = { [weak self] errorMessage in
+            self?.showAlert(message: errorMessage)
         }
         
         viewModel?.successCallback = { [weak self] in
