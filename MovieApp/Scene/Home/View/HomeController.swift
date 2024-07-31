@@ -21,6 +21,9 @@ class HomeController: UIViewController {
     }
     
     fileprivate func configureUI() {
+        if UserDefaultsHelper.get(key: .premium) {
+            viewModel.coordinator?.showPremiumPage()
+        }
         collection.registerCell(type: HorizontalMovieCell.self)
         collection.registerSupplementaryView(type: HomeHeader.self, ofKind: UICollectionView.elementKindSectionHeader)
     }
@@ -48,7 +51,7 @@ class HomeController: UIViewController {
     
     
     @IBAction func premiumButtonTapped(_ sender: Any) {
-        //show revenue cat screen
+        viewModel.coordinator?.showPremiumPage()
     }
 }
 

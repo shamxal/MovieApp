@@ -9,12 +9,14 @@ import Foundation
 
 class UserDefaultsHelper {
     enum UserDefault: String {
-        case darkMode
+        case userId
         case premium
-        case appOpenCount
+        case darkMode
+        case isLoggedIn
         case introPassed
+        case appOpenCount
         
-        static let items: [UserDefault] = [.darkMode, .premium, .appOpenCount, .introPassed]
+        static let items: [UserDefault] = [.userId, .premium, .darkMode, .isLoggedIn, .introPassed, .appOpenCount]
     }
     
     static func save(value: String, key: UserDefault) {

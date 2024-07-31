@@ -29,4 +29,9 @@ class HomeCoordinator: Coordinator {
         let coordinator = MovieDetailCoordinator(movieId: id, navigationController: navigationController)
         coordinator.start()
     }
+    
+    func showPremiumPage() {
+        let coordinator = PremiumCoordinator(navigationController: navigationController)
+        coordinator.start()
+    }
 }

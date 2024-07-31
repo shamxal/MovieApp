@@ -86,16 +86,20 @@ class MovieViewModel {
     }
     
     func showVideList() {
-        coordinator.showVideList(videos: videos)
+        UserDefaultsHelper.get(key: .premium) ? coordinator.showVideList(videos: videos) : coordinator.showPremiumPage()
     }
     
     func addMovieToFavorite() {
-        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
-            addToFavorite()
-        } else {
-            FirebaseManager.signInAnonymously { [weak self] in
-                self?.addMovieToFavorite()
+        if UserDefaultsHelper.get(key: .premium) {
+            if UserDefaultsHelper.get(key: .isLoggedIn) {
+                addToFavorite()
+            } else {
+                FirebaseManager.signInAnonymously { [weak self] in
+                    self?.addMovieToFavorite()
+                }
             }
+        } else {
+            coordinator.showPremiumPage()
         }
     }
     

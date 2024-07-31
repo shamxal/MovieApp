@@ -74,10 +74,9 @@ class FirebaseManager {
     static func signInAnonymously(complete: @escaping(() -> Void)) {
         Auth.auth().signInAnonymously { authResult, error in
             guard let user = authResult?.user else { return }
-            let isAnonymous = user.isAnonymous  // true
-            let uid = user.uid
-            UserDefaults.standard.set(uid, forKey: "userId")
-            UserDefaults.standard.set(true, forKey: "isLoggedIn")
+            //let isAnonymous = user.isAnonymous
+            UserDefaultsHelper.save(value: user.uid, key: .userId)
+            UserDefaultsHelper.save(value: true, key: .isLoggedIn)
             complete()
         }
     }

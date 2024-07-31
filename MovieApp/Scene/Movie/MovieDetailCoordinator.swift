@@ -32,4 +32,9 @@ class MovieDetailCoordinator: Coordinator {
         let controller = LoginController.instantiate(name: .main)
         navigationController.show(controller, sender: nil)
     }
+    
+    func showPremiumPage() {
+        let coordinator = PremiumCoordinator(navigationController: navigationController)
+        coordinator.start()
+    }
 }
