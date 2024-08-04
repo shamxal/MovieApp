@@ -85,7 +85,7 @@ class MovieViewModel {
         }
     }
     
-    func showVideList() {
+    func showVideoList() {
         UserDefaultsHelper.get(key: .premium) ? coordinator.showVideList(videos: videos) : coordinator.showPremiumPage()
     }
     

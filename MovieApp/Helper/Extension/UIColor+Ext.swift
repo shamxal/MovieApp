@@ -12,7 +12,6 @@ extension UIColor {
         var rgbHexInt: UInt64 = 0
         
         let scanner = Scanner(string: hexStr)
-        scanner.scanLocation = 0
         scanner.scanHexInt64(&rgbHexInt)
         
         self.init(red: CGFloat((rgbHexInt & 0xff0000) >> 16) / 0xff,

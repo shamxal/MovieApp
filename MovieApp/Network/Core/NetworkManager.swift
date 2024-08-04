@@ -15,9 +15,10 @@ class NetworkManager {
                              url: String,
                              method: HTTPMethod = .get,
                              completion: @escaping((Result<T, ErrorTypes>)->())) {
-//        print("url: \(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")")
-//        print("header: \(NetworkHelper.shared.getHeaders())")
-        AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "",
+        let url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        print("url: \(url)")
+        print("header: \(NetworkHelper.shared.getHeaders())")
+        AF.request(url,
                    method: method,
                    headers: NetworkHelper.shared.getHeaders()).responseData { response in
             switch response.result {
@@ -25,7 +26,8 @@ class NetworkManager {
                 self.handleResponse(data: data) { response in
                     completion(response)
                 }
-            case .failure(_):
+            case .failure(let error):
+                print("error: \(error.localizedDescription)")
                 completion(.failure(.generalError))
             }
         }
@@ -51,7 +53,9 @@ class NetworkManager {
         do {
             let result = try JSONDecoder().decode(T.self, from: data)
             completion(.success(result))
+            print("response: \(result)")
         } catch {
+            print("error: \(error.localizedDescription)")
             completion(.failure(.invalidData))
         }
     }

@@ -126,7 +126,7 @@ extension MovieController: UICollectionViewDataSource, UICollectionViewDelegate 
                 let cell: MovieMediaCell = collectionView.dequeueCell(for: indexPath)
                 cell.configure(mediaData: posterImage)
                 cell.playActionCallback = { [weak self] in
-                    self?.viewModel.showVideList()
+                    self?.viewModel.showVideoList()
                 }
                 return cell
             }
@@ -166,7 +166,7 @@ extension MovieController: UICollectionViewDataSource, UICollectionViewDelegate 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if viewModel.dtoData[indexPath.section].type == .media {
-            viewModel.showVideList()
+            viewModel.showVideoList()
         } else if viewModel.dtoData[indexPath.section].type == .similarMovies {
             let id = viewModel.similarMovies[indexPath.item].id ?? 0
             let coordinator = MovieDetailCoordinator(movieId: id, navigationController: navigationController ?? UINavigationController())

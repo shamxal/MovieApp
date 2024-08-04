@@ -7,10 +7,13 @@
 
 import Foundation
 
-enum SearchEndpoint: String {
-    case search = "search/movie"
-    
+enum SearchEndpoint {
+    case search(query: String, page: Int)
+        
     var path: String {
-        NetworkHelper.shared.requestUrl(url: self.rawValue)
+        switch self {
+        case .search(let query, let page):
+            return NetworkHelper.shared.requestUrl(url: "search/movie?query=\(query)&page=\(page)")
+        }
     }
 }
