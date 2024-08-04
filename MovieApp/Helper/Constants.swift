@@ -8,9 +8,9 @@
 import Foundation
 
 struct Constants {
-    
-    static let apiKeyRevenueCat = "appl_nJNmwICRvHdesQjZHNNMjBrrnQF"
     static let entitlementIdRevenueCat = "Premium"
+    static let lifetimeIdentifier = "com.lifetime.499"
+    static let apiKeyRevenueCat = "appl_nJNmwICRvHdesQjZHNNMjBrrnQF"
 }
 
 enum PremiumType: String {

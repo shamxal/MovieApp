@@ -13,7 +13,6 @@ class PremiumCoordinator: Coordinator {
     var shouldPresent: Bool = true
     var navigationController: UINavigationController
     
-    var lifetimeIdentifier = "com.lifetime.499"
     var paywallDidFinish: ((CustomerInfo) -> Void)?
     
     init(navigationController: UINavigationController,
@@ -23,7 +22,7 @@ class PremiumCoordinator: Coordinator {
     }
     
     func start() {
-        let paywallController = PaywallViewController(offeringIdentifier: lifetimeIdentifier,
+        let paywallController = PaywallViewController(offeringIdentifier: Constants.lifetimeIdentifier,
                                                       displayCloseButton: true)
         paywallController.delegate = self
         if shouldPresent {
@@ -32,6 +31,7 @@ class PremiumCoordinator: Coordinator {
         } else {
             navigationController.show(paywallController, sender: nil)
         }
+//        navigationController.presentDebugRevenueCatOverlay()
     }
     
     func restorePurchase(completion: @escaping((CustomerInfo?, String?) -> Void)) {
@@ -51,8 +51,8 @@ class PremiumCoordinator: Coordinator {
 
 extension PremiumCoordinator: PaywallViewControllerDelegate {
     func paywallViewController(_ controller: PaywallViewController, didFinishPurchasingWith customerInfo: CustomerInfo) {
-        UserDefaultsHelper.save(value: customerInfo.entitlements["Premium"]?.isActive == true ? PremiumType.yes.rawValue : PremiumType.no.rawValue,
-                                       key: .premium)
+        UserDefaultsHelper.save(value: customerInfo.entitlements[Constants.entitlementIdRevenueCat]?.isActive == true ? PremiumType.yes.rawValue : PremiumType.no.rawValue,
+                                key: .premium)
         paywallDidFinish?(customerInfo)
     }
 }

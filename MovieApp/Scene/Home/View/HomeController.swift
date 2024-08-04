@@ -16,12 +16,12 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureUI()
         configureViewModel()
+        configureUI()
     }
     
     fileprivate func configureUI() {
-        if UserDefaultsHelper.get(key: .premium) {
+        if !UserDefaultsHelper.get(key: .premium) {
             viewModel.coordinator?.showPremiumPage()
         }
         collection.registerCell(type: HorizontalMovieCell.self)

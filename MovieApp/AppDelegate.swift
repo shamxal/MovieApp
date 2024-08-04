@@ -22,6 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Purchases.configure(withAPIKey: Constants.apiKeyRevenueCat)
         Purchases.shared.delegate = self
         
+        Purchases.shared.getCustomerInfo { customerInfo, _ in
+            guard let customerInfo else { return }
+            UserDefaultsHelper.save(value: customerInfo.entitlements[Constants.entitlementIdRevenueCat]?.isActive == true ? PremiumType.yes.rawValue : PremiumType.no.rawValue,
+                                    key: .premium)
+        }
+        
         return true
     }
 
