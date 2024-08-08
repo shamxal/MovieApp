@@ -31,7 +31,7 @@ class HomeCoordinator: Coordinator {
     }
     
     func showPremiumPage() {
-        let coordinator = PremiumCoordinator(navigationController: navigationController)
-        coordinator.start()
+//        let coordinator = PremiumCoordinator(navigationController: navigationController)
+//        coordinator.start()
     }
 }

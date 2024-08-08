@@ -33,8 +33,9 @@ class MovieDetailCoordinator: Coordinator {
         navigationController.show(controller, sender: nil)
     }
     
-    func showPremiumPage() {
-        let coordinator = PremiumCoordinator(navigationController: navigationController)
-        coordinator.start()
+    func showPremiumPage(controller: UIViewController) {
+        PremiumCoordinator.shared.start(controller: controller)
+//        let coordinator = PremiumCoordinator(navigationController: navigationController)
+//        coordinator.start()
     }
 }

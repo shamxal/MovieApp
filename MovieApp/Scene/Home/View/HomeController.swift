@@ -22,7 +22,8 @@ class HomeController: UIViewController {
     
     fileprivate func configureUI() {
         if !UserDefaultsHelper.get(key: .premium) {
-            viewModel.coordinator?.showPremiumPage()
+//            viewModel.coordinator?.showPremiumPage()
+            showPremiumPage()
         }
         collection.registerCell(type: HorizontalMovieCell.self)
         collection.registerSupplementaryView(type: HomeHeader.self, ofKind: UICollectionView.elementKindSectionHeader)
@@ -45,13 +46,18 @@ class HomeController: UIViewController {
         }
     }
     
+    func showPremiumPage() {
+        PremiumCoordinator.shared.start(controller: self)
+    }
+    
     @IBAction func filterButtonTapped(_ sender: Any) {
         viewModel.coordinator?.showFilter()
     }
     
     
     @IBAction func premiumButtonTapped(_ sender: Any) {
-        viewModel.coordinator?.showPremiumPage()
+//        viewModel.coordinator?.showPremiumPage()
+        showPremiumPage()
     }
 }
 

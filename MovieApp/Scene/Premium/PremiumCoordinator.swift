@@ -9,28 +9,24 @@ import UIKit
 import RevenueCat
 import RevenueCatUI
 
-class PremiumCoordinator: Coordinator {
-    var shouldPresent: Bool = true
-    var navigationController: UINavigationController
+class PremiumCoordinator {//: Coordinator {
     
-    var paywallDidFinish: ((CustomerInfo) -> Void)?
+//    var navigationController: UINavigationController
     
-    init(navigationController: UINavigationController,
-         shouldPresent: Bool = true) {
-        self.shouldPresent = shouldPresent
-        self.navigationController = navigationController
-    }
+//    var paywallDidFinish: ((CustomerInfo) -> Void)?
     
-    func start() {
-        let paywallController = PaywallViewController(offeringIdentifier: Constants.lifetimeIdentifier,
-                                                      displayCloseButton: true)
+//    init(navigationController: UINavigationController) {
+//        self.navigationController = navigationController
+//    }
+    
+    static let shared = PremiumCoordinator()
+    
+    func start(controller: UIViewController) {
+        let paywallController = PaywallViewController(offeringIdentifier: Constants.lifetimeIdentifier, displayCloseButton: true)
         paywallController.delegate = self
-        if shouldPresent {
-            paywallController.modalPresentationStyle = .overFullScreen
-            navigationController.present(paywallController, animated: true, completion: nil)
-        } else {
-            navigationController.show(paywallController, sender: nil)
-        }
+        paywallController.modalPresentationStyle = .overFullScreen
+        controller.present(paywallController, animated: true, completion: nil)
+//        navigationController.present(paywallController, animated: true, completion: nil)
 //        navigationController.presentDebugRevenueCatOverlay()
     }
     
@@ -50,9 +46,25 @@ class PremiumCoordinator: Coordinator {
 }
 
 extension PremiumCoordinator: PaywallViewControllerDelegate {
+    func paywallViewControllerDidStartPurchase(_ controller: PaywallViewController) {
+        print("paywallViewControllerDidStartPurchase")
+    }
+    
     func paywallViewController(_ controller: PaywallViewController, didFinishPurchasingWith customerInfo: CustomerInfo) {
         UserDefaultsHelper.save(value: customerInfo.entitlements[Constants.entitlementIdRevenueCat]?.isActive == true ? PremiumType.yes.rawValue : PremiumType.no.rawValue,
                                 key: .premium)
-        paywallDidFinish?(customerInfo)
+//        paywallDidFinish?(customerInfo)
+    }
+    
+    func paywallViewControllerDidCancelPurchase(_ controller: PaywallViewController) {
+        print("paywallViewControllerDidCancelPurchase")
+    }
+    
+    func paywallViewControllerWasDismissed(_ controller: PaywallViewController) {
+        print("paywallViewControllerWasDismissed")
+    }
+    
+    func paywallViewControllerDidStartRestore(_ controller: PaywallViewController) {
+        print("paywallViewControllerDidStartRestore")
     }
 }

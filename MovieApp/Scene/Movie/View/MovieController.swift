@@ -101,7 +101,7 @@ class MovieController: UIViewController {
         if viewModel.isFavoriteMovie {
             viewModel.removeFromFavorite()
         } else {
-            viewModel.addMovieToFavorite()
+            viewModel.addMovieToFavorite(controller: self)
         }
     }
 }
@@ -126,7 +126,8 @@ extension MovieController: UICollectionViewDataSource, UICollectionViewDelegate 
                 let cell: MovieMediaCell = collectionView.dequeueCell(for: indexPath)
                 cell.configure(mediaData: posterImage)
                 cell.playActionCallback = { [weak self] in
-                    self?.viewModel.showVideoList()
+                    guard let self else { return }
+                    self.viewModel.showVideoList(controller: self)
                 }
                 return cell
             }
@@ -166,7 +167,7 @@ extension MovieController: UICollectionViewDataSource, UICollectionViewDelegate 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if viewModel.dtoData[indexPath.section].type == .media {
-            viewModel.showVideoList()
+            viewModel.showVideoList(controller: self)
         } else if viewModel.dtoData[indexPath.section].type == .similarMovies {
             let id = viewModel.similarMovies[indexPath.item].id ?? 0
             let coordinator = MovieDetailCoordinator(movieId: id, navigationController: navigationController ?? UINavigationController())

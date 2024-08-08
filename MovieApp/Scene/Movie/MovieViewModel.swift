@@ -5,12 +5,13 @@
 //  Created by Shamkhal Guliyev on 18.11.22.
 //
 
+import UIKit
 import Foundation
 
 class MovieViewModel {
     private var movieId: Int
     private var movieData: MovieDetail?
-    private var coordinator: MovieDetailCoordinator
+    var coordinator: MovieDetailCoordinator
     
     var dtoData = [MovieDetailDTO]()
     var similarMovies = [MovieResult]()
@@ -85,21 +86,21 @@ class MovieViewModel {
         }
     }
     
-    func showVideoList() {
-        UserDefaultsHelper.get(key: .premium) ? coordinator.showVideList(videos: videos) : coordinator.showPremiumPage()
+    func showVideoList(controller: UIViewController) {
+        UserDefaultsHelper.get(key: .premium) ? coordinator.showVideList(videos: videos) : coordinator.showPremiumPage(controller: controller)
     }
     
-    func addMovieToFavorite() {
+    func addMovieToFavorite(controller: UIViewController) {
         if UserDefaultsHelper.get(key: .premium) {
             if UserDefaultsHelper.get(key: .isLoggedIn) {
                 addToFavorite()
             } else {
                 FirebaseManager.signInAnonymously { [weak self] in
-                    self?.addMovieToFavorite()
+                    self?.addToFavorite()
                 }
             }
         } else {
-            coordinator.showPremiumPage()
+            coordinator.showPremiumPage(controller: controller)
         }
     }
     
