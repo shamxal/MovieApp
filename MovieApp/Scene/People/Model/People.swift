@@ -36,6 +36,7 @@ struct PeopleResult: Codable, PeopleCellProtocol {
         case knownForDepartment = "known_for_department"
         case name, popularity
         case profilePath = "profile_path"
+        
     }
     
     var titleText: String {
