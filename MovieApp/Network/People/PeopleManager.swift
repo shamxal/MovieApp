@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol PeopleManagerProtocol {
+protocol PeopleManagerUseCase {
     func getPopularPeople(page: Int, complete: @escaping((People?, String?)->()))
     func getPopularPeopleMovieList(id: Int, complete: @escaping((PeopleMovieList?, Error?)->()))
 }
 
-class PeopleManager: PeopleManagerProtocol {
+class PeopleManager: PeopleManagerUseCase {
     static let shared = PeopleManager()
     
     func getPopularPeople(page: Int, complete: @escaping ((People?, String?) -> ())) {
