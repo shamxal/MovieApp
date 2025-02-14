@@ -29,7 +29,6 @@ struct PeopleResult: Codable, PeopleCellProtocol {
     let knownForDepartment, name: String?
     let popularity: Double?
     let profilePath: String?
-    let status: String?
 
     enum CodingKeys: String, CodingKey {
         case adult, gender, id
@@ -37,12 +36,11 @@ struct PeopleResult: Codable, PeopleCellProtocol {
         case knownForDepartment = "known_for_department"
         case name, popularity
         case profilePath = "profile_path"
-        case status
+        
     }
     
     var titleText: String {
-//        name ?? ""
-        status ?? ""
+        name ?? ""
     }
     
     var imagePath: String {
